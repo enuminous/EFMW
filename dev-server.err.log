@@ -1,0 +1,31 @@
+    at fork (node:child_process:174:10)
+    at spawn (node:child_process:796:9)
+Error: spawn EPERM
+    at ChildProcess.spawn (node:internal/child_process:421:11)
+    at C:\Users\monol\Documents\Codex\2026-05-05\build-a-next-js-app-called\node_modules\next\dist\cli\next-dev.js:213:45
+    at new Promise (<anonymous>)
+    at startServer (C:\Users\monol\Documents\Codex\2026-05-05\build-a-next-js-app-called\node_modules\next\dist\cli\next-dev.js:199:16)
+    at runDevServer (C:\Users\monol\Documents\Codex\2026-05-05\build-a-next-js-app-called\node_modules\next\dist\cli\next-dev.js:280:23)
+  code: 'EPERM',
+  errno: -4048,
+}
+    at Module.nextDev (C:\Users\monol\Documents\Codex\2026-05-05\build-a-next-js-app-called\node_modules\next\dist\cli\next-dev.js:288:11) {
+  syscall: 'spawn'
+ ? Failed to start server
+Error: listen EADDRINUSE: address already in use :::3000
+    at listenInCluster (node:net:2005:12)
+    at Server.listen (node:net:2110:7)
+    at Server.setupListenHandle [as _listen2] (node:net:1948:16)
+    at new Promise (<anonymous>)
+    at C:\Users\monol\Documents\Codex\2026-05-05\build-a-next-js-app-called\node_modules\next\dist\server\lib\start-server.js:310:52
+    at Span.traceAsyncFn (C:\Users\monol\Documents\Codex\2026-05-05\build-a-next-js-app-called\node_modules\next\dist\trace\trace.js:154:26)
+    at process.<anonymous> (C:\Users\monol\Documents\Codex\2026-05-05\build-a-next-js-app-called\node_modules\next\dist\server\lib\start-server.js:310:35)
+    at process.emit (node:events:508:28) {
+  code: 'EADDRINUSE',
+    at C:\Users\monol\Documents\Codex\2026-05-05\build-a-next-js-app-called\node_modules\next\dist\server\lib\start-server.js:280:16
+    at startServer (C:\Users\monol\Documents\Codex\2026-05-05\build-a-next-js-app-called\node_modules\next\dist\server\lib\start-server.js:191:11)
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
