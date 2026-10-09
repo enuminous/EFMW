@@ -10,12 +10,17 @@ Run a deterministic demonstration:
 Run built-in checks:
     python "MillieComplex EFMW AGI.py" --self-test
 
+Serve the local page and API (a text model is optional):
+    python "MillieComplex EFMW AGI.py" --serve
+    python "MillieComplex EFMW AGI.py" --serve --model-name MODEL_ID
+
 Persistence is opt-in. Without --memory, learned records live only in memory.
 No model is downloaded, no modules are auto-loaded, and no server is started.
 """
 from __future__ import annotations
 
 import argparse
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import hashlib
 import json
 import math
@@ -24,12 +29,13 @@ import re
 import tempfile
 import time
 import unittest
+from urllib.parse import urlsplit
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Optional, Protocol
 
 TOKEN_RE = re.compile(r"[\w'-]+", flags=re.UNICODE)
-MODEL_VERSION = "2.0.0"
+MODEL_VERSION = "2.1.0"
 
 
 def efmw_scalar(value: float) -> float:
@@ -338,6 +344,102 @@ def run_demo(memory: Optional[MemoryStore] = None) -> None:
     print(json.dumps(model.snapshot(), indent=2))
 
 
+def run_server(
+    host: str,
+    port: int,
+    memory: MemoryStore,
+    adapter: Optional[LanguageAdapter],
+) -> None:
+    """Serve the bundled page and a same-origin, localhost-only model API."""
+    model = MillieComplexModel(memory=memory)
+    static_root = Path(__file__).resolve().parent
+
+    class Handler(BaseHTTPRequestHandler):
+
+        def _json(self, status: int, payload: dict[str, object]) -> None:
+            raw = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+            self.send_response(status)
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("Content-Length", str(len(raw)))
+            self.send_header("Cache-Control", "no-store")
+            self.end_headers()
+            self.wfile.write(raw)
+
+        def do_GET(self) -> None:
+            path = urlsplit(self.path).path
+            if path == "/api/health":
+                self._json(200, {
+                    "model_version": MODEL_VERSION,
+                    "language_backend": adapter is not None,
+                    "state_metric_scope": "internal state change only",
+                })
+                return
+            if path not in ("/", "/index.html"):
+                self.send_error(404, "No such page")
+                return
+            try:
+                raw = (static_root / "index.html").read_bytes()
+            except OSError:
+                self.send_error(404, "index.html is missing")
+                return
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.send_header("Content-Length", str(len(raw)))
+            self.send_header("Cache-Control", "no-store")
+            self.end_headers()
+            self.wfile.write(raw)
+
+        def do_POST(self) -> None:
+            if urlsplit(self.path).path != "/api/tutor":
+                self.send_error(404, "No such endpoint")
+                return
+            try:
+                size = int(self.headers.get("Content-Length", "0"))
+                if size < 1 or size > 16_384:
+                    self._json(413, {"error": "Send a prompt of at most 16 KB."})
+                    return
+                payload = json.loads(self.rfile.read(size))
+                prompt = payload.get("prompt") if isinstance(payload, dict) else None
+                if not isinstance(prompt, str) or not prompt.strip():
+                    self._json(400, {"error": "Enter a non-empty prompt."})
+                    return
+                if len(prompt) > 8_000:
+                    self._json(413, {"error": "Prompt is too long (8,000 characters max)."})
+                    return
+                result = model.respond(prompt, adapter)
+                if adapter is None:
+                    self._json(503, {
+                        "error": "The EFMW state engine ran, but no language-generation model is configured. Start the server with --model-name MODEL_ID to enable text answers.",
+                        "diagnostics": result["state"],
+                    })
+                    return
+                self._json(200, {
+                    "response": result["response"],
+                    "diagnostics": result["state"],
+                    "model_version": MODEL_VERSION,
+                })
+            except (json.JSONDecodeError, UnicodeDecodeError):
+                self._json(400, {"error": "Request body must be valid UTF-8 JSON."})
+            except (TypeError, ValueError):
+                self._json(400, {"error": "Request must include a valid prompt."})
+
+        def log_message(self, format: str, *args) -> None:
+            # Keep the local log useful without echoing submitted prompt text.
+            super().log_message(format, *args)
+
+    server = ThreadingHTTPServer((host, port), Handler)
+    server.daemon_threads = True
+    print(f"MillieComplex {MODEL_VERSION} at http://{host}:{port}/")
+    if adapter is None:
+        print("State diagnostics enabled; configure --model-name for generated text.")
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print("\nServer stopped.")
+    finally:
+        server.server_close()
+
+
 class ModelTests(unittest.TestCase):
     def test_transform_is_odd_and_zero_safe(self) -> None:
         self.assertEqual(efmw_scalar(0), 0.0)
@@ -363,21 +465,42 @@ class ModelTests(unittest.TestCase):
             self.assertEqual(found[0].source, "fixture")
             self.assertEqual(found[0].epistemic_status, "test")
 
+    def test_no_backend_is_reported_without_fabricating_text(self) -> None:
+        result = MillieComplexModel().respond("What is EFMW?")
+        self.assertIsNone(result["response"])
+        self.assertEqual(result["language_status"], "no language backend configured")
+        self.assertIn("state", result)
+
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     modes = parser.add_mutually_exclusive_group()
     modes.add_argument("--demo", action="store_true", help="run a deterministic local demo")
     modes.add_argument("--self-test", action="store_true", help="run built-in checks")
+    modes.add_argument("--serve", action="store_true", help="serve index.html and the local model API")
     parser.add_argument(
         "--memory", type=Path, default=None,
         help="opt into JSON persistence at this path (otherwise memory is in-process only)",
+    )
+    parser.add_argument("--host", default="127.0.0.1", help="bind address; defaults to localhost")
+    parser.add_argument("--port", type=int, default=8000, help="local web port")
+    parser.add_argument(
+        "--model-name", default=None,
+        help="optional Hugging Face causal language-model ID (loads weights on server start)",
     )
     args = parser.parse_args()
     if args.self_test:
         suite = unittest.defaultTestLoader.loadTestsFromTestCase(ModelTests)
         result = unittest.TextTestRunner(verbosity=2).run(suite)
         raise SystemExit(0 if result.wasSuccessful() else 1)
+    if args.serve:
+        if not 1 <= args.port <= 65535:
+            parser.error("--port must be between 1 and 65535")
+        if args.host != "127.0.0.1":
+            parser.error("The local model server binds only to 127.0.0.1")
+        adapter = TransformersAdapter(args.model_name) if args.model_name else None
+        run_server(args.host, args.port, MemoryStore(args.memory), adapter)
+        return
     # Running the file defaults to the local demo; disk persistence requires
     # the user to pass --memory explicitly.
     run_demo(memory=MemoryStore(args.memory))

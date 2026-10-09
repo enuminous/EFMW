@@ -1,44 +1,54 @@
 # EFMW Tutor and MillieComplex
 
-A structured Next.js tutor for learning EFMW concepts step by step, alongside an inspectable Python prototype for recursive state tracking.
+This repository combines the EFMW tutoring project with an inspectable recursive state-model prototype and a simple search interface.
 
-## EFMW Tutor
+## Search page and local engine
 
-The web app uses local JSON only. The `/api/tutor` route is a placeholder for a future OpenAI-backed tutor.
+The root [index.html](index.html) is a centered, minimal search page. It submits questions to the local Python engine at `/api/tutor`.
 
-Run it locally:
+Run the page and engine locally:
 
 ```bash
-npm install
-npm run dev
+python3 "MillieComplex EFMW AGI.py" --serve
 ```
 
-## MillieComplex EFMW AGI — v2.0.0
+Then open [http://127.0.0.1:8000](http://127.0.0.1:8000).
 
-[`MillieComplex EFMW AGI.py`](MillieComplex%20EFMW%20AGI.py) is a deterministic, EFMW-inspired state model. It adds:
+By default, the engine updates its EFMW-inspired state and returns diagnostics, but it has no text-generation backend. To enable generated answers, install `torch` and `transformers`, then explicitly provide a compatible Hugging Face causal-language-model ID:
+
+```bash
+python3 "MillieComplex EFMW AGI.py" --serve --model-name MODEL_ID
+```
+
+This loads model weights at server startup and may require substantial memory or a download. The server binds only to `127.0.0.1`; it is intended for local use. Memory remains in-process unless a path is explicitly provided with `--memory ./agi_memory.json`.
+
+## MillieComplex EFMW model v2.1.0
+
+The Python prototype provides:
 
 - A bounded recurrent vector update with configurable feedback and update rate.
-- A signed logarithmic scalar transform, with explicit finite-value handling.
-- Memory records with source and epistemic-status fields; disk persistence is opt-in.
-- A state-stability diagnostic that reports internal vector change only.
-- An optional Hugging Face text-generation adapter, loaded only when explicitly constructed.
-- A local deterministic demo and built-in self-tests.
+- A signed logarithmic scalar transform.
+- Provenance-aware memory records and optional JSON persistence.
+- A state-stability diagnostic describing internal vector change only.
+- An optional language adapter that is loaded only when explicitly requested.
+- A local demo and four built-in checks.
 
-Run the demo and checks with Python 3:
+Run the demo and checks:
 
 ```bash
 python3 "MillieComplex EFMW AGI.py" --demo
 python3 "MillieComplex EFMW AGI.py" --self-test
 ```
 
-To persist demo memory, pass a path explicitly:
+## EFMW Tutor
+
+The Next.js tutoring app remains a separate interface. The v1 web app uses local JSON only; its `/api/tutor` route is a placeholder for future OpenAI-backed tutoring.
 
 ```bash
-python3 "MillieComplex EFMW AGI.py" --demo --memory ./agi_memory.json
+npm install
+npm run dev
 ```
-
-The optional Transformers adapter requires `torch` and `transformers`; constructing it loads the selected model and may download model weights. It is never created on import or by the default demo. There is no network-accessible server or dynamic module execution in the default model.
 
 ## Scope
 
-This is a research prototype. The state-stability score measures change in an internal vector; it does not establish truth, consciousness, intelligence, or a physical law. The token hash encoder is a deterministic feature sketch, not a semantic embedding. A formal proof about the code or its equations would not by itself validate a model of nature.
+This is a research prototype. The token-hash encoder is a deterministic feature sketch, not a semantic embedding. The state-stability score measures change in an internal vector; it does not establish truth, consciousness, intelligence, or a physical law. A formal result about this implementation would not by itself validate a model of nature.

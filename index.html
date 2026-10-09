@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="A simple search interface for the local EFMW and MillieComplex model engine.">
+<title>EFMW Search</title>
+<style>
+:root{font-family:Arial,Helvetica,sans-serif;color:#202124;background:#fff;font-synthesis:none;text-rendering:optimizeLegibility}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:flex;flex-direction:column}header{height:58px;display:flex;justify-content:flex-end;align-items:center;padding:0 28px}header a{font-size:13px;color:#5f6368;text-decoration:none;margin-left:20px}header a:hover{text-decoration:underline}.main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 20px 110px}.logo{font-size:clamp(58px,11vw,88px);font-weight:500;letter-spacing:-.075em;line-height:1;margin:0 0 28px;user-select:none}.e{color:#4285f4}.f{color:#ea4335}.m{color:#fbbc05}.w{color:#34a853}.caption{color:#5f6368;font-size:14px;margin:-13px 0 26px}.search-form{width:min(584px,100%)}.searchbox{height:48px;border:1px solid #dfe1e5;border-radius:28px;display:flex;align-items:center;padding:0 15px;box-shadow:0 1px 6px rgba(32,33,36,.08);transition:box-shadow .18s,border-color .18s}.searchbox:hover,.searchbox:focus-within{box-shadow:0 1px 8px rgba(32,33,36,.24);border-color:transparent}.search-icon{width:20px;height:20px;color:#9aa0a6;flex:0 0 auto}.searchbox input{border:0;outline:0;flex:1;min-width:0;font-size:16px;color:#202124;background:transparent;padding:0 12px}.searchbox input::placeholder{color:#80868b}.buttons{display:flex;justify-content:center;gap:12px;margin-top:28px}.buttons button{border:1px solid #f8f9fa;border-radius:4px;background:#f8f9fa;color:#3c4043;font-size:14px;padding:0 16px;height:36px;cursor:pointer}.buttons button:hover,.buttons button:focus-visible{border-color:#dadce0;box-shadow:0 1px 1px rgba(0,0,0,.1);outline:none}.helper{color:#70757a;font-size:12px;text-align:center;margin-top:21px}.result{width:min(584px,100%);margin-top:32px;padding:20px 22px;border:1px solid #dadce0;border-radius:10px;background:#fff;box-shadow:0 1px 3px rgba(60,64,67,.12)}.result[hidden]{display:none}.result h2{font-size:16px;font-weight:600;margin:0 0 12px}.result p{font-size:14px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere;margin:0;color:#3c4043}.diagnostic{margin-top:12px!important;color:#70757a!important;font-size:12px!important}.status{min-height:19px;font-size:13px;color:#5f6368;margin-top:14px;text-align:center}.status.error{color:#b3261e}footer{min-height:42px;background:#f2f2f2;border-top:1px solid #dadce0;display:flex;align-items:center;justify-content:space-between;padding:10px 28px;color:#70757a;font-size:13px;gap:12px}footer a{color:#70757a;text-decoration:none;margin-left:18px}footer a:hover{text-decoration:underline}@media(max-width:600px){header{padding:0 18px}.main{justify-content:flex-start;padding-top:16vh;padding-bottom:45px}.logo{margin-bottom:25px}.caption{font-size:13px}footer{padding:12px 18px;flex-direction:column;align-items:flex-start}footer a{margin:0 16px 0 0}}
+</style>
+</head>
+<body>
+<header><a href="https://github.com/enuminous/EFMW" target="_blank" rel="noopener">EFMW on GitHub</a></header>
+<main class="main">
+  <h1 class="logo" aria-label="EFMW"><span class="e">E</span><span class="f">F</span><span class="m">M</span><span class="w">W</span></h1>
+  <p class="caption">Ask the EFMW model</p>
+  <form class="search-form" id="search-form">
+    <label class="searchbox" for="query">
+      <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.1 4.1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <input id="query" name="query" type="search" autocomplete="off" maxlength="8000" placeholder="Ask a question about EFMW" aria-label="Ask a question about EFMW" required>
+    </label>
+    <div class="buttons"><button type="submit" id="ask">Ask EFMW</button><button type="button" id="example">Try an example</button></div>
+  </form>
+  <p class="helper">Runs through the MillieComplex engine on your local machine.</p>
+  <p class="status" id="status" role="status" aria-live="polite"></p>
+  <section class="result" id="result" aria-live="polite" hidden>
+    <h2 id="result-title">EFMW response</h2>
+    <p id="answer"></p>
+    <p class="diagnostic" id="diagnostic"></p>
+  </section>
+</main>
+<footer><span>MillieComplex · model v2.1.0</span><span><a href="https://github.com/enuminous/EFMW/blob/main/MillieComplex%20EFMW%20AGI.py" target="_blank" rel="noopener">Engine</a><a href="https://github.com/enuminous/EFMW/blob/main/README.md" target="_blank" rel="noopener">About</a></span></footer>
+<script>
+const form=document.getElementById('search-form');
+const input=document.getElementById('query');
+const statusLine=document.getElementById('status');
+const result=document.getElementById('result');
+const answer=document.getElementById('answer');
+const diagnostic=document.getElementById('diagnostic');
+const ask=document.getElementById('ask');
+
+document.getElementById('example').addEventListener('click',()=>{
+  input.value='What does the EFMW state-stability score measure?';
+  input.focus();
+});
+form.addEventListener('submit',async(event)=>{
+  event.preventDefault();
+  const prompt=input.value.trim();
+  if(!prompt)return;
+  statusLine.className='status';
+  statusLine.textContent='Thinking…';
+  result.hidden=true;
+  ask.disabled=true;
+  try{
+    const response=await fetch('/api/tutor',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({prompt})
+    });
+    const data=await response.json();
+    if(!response.ok){
+      if(data.diagnostics){
+        result.hidden=false;
+        document.getElementById('result-title').textContent='Engine diagnostic';
+        answer.textContent=data.error||'The engine could not generate a text answer.';
+        const state=data.diagnostics.state||{};
+        diagnostic.textContent=state.state_stability==null?'':`State stability: ${state.state_stability} · This measures internal state change, not truth.`;
+      }
+      throw new Error(data.error||'The model request failed.');
+    }
+    document.getElementById('result-title').textContent='EFMW response';
+    answer.textContent=data.response||'The language backend returned an empty response.';
+    const state=data.diagnostics?.state||{};
+    diagnostic.textContent=state.state_stability==null?'':`State stability: ${state.state_stability} · This measures internal state change, not truth.`;
+    result.hidden=false;
+    statusLine.textContent='';
+  }catch(error){
+    statusLine.className='status error';
+    statusLine.textContent=`${error.message} Start the local engine with the instructions in the repository README.`;
+  }finally{
+    ask.disabled=false;
+  }
+});
+</script>
+</body>
+</html>
