@@ -3,40 +3,102 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EFMW — Repository Contents</title>
+<meta name="description" content="EFMW Tutor and MillieComplex: an inspectable, local-first recursive state-model research prototype.">
+<meta name="theme-color" content="#101827">
+<title>EFMW Tutor · MillieComplex</title>
 <style>
-:root{color-scheme:light dark;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-body{max-width:860px;margin:48px auto;padding:0 22px;line-height:1.55}
-h1{font-size:2rem;margin-bottom:.25rem}
-p{opacity:.75;margin-top:0}
-ul{list-style:none;padding:0;border-top:1px solid #8885}
-li{display:flex;justify-content:space-between;gap:1rem;padding:.65rem .15rem;border-bottom:1px solid #8885}
-a{overflow-wrap:anywhere}
-span{opacity:.65;font-size:.9rem;white-space:nowrap}
+:root{color-scheme:dark;--bg:#0b1220;--panel:#111c2e;--panel2:#15243a;--line:#273850;--text:#edf3fb;--muted:#aab8ca;--blue:#87baff;--mint:#82e4ce;--amber:#ffd18b;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 76% -10%,#234064 0,transparent 43%),var(--bg);color:var(--text);line-height:1.6}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}.wrap{width:min(1040px,calc(100% - 40px));margin:auto}
+header{padding:22px 0;border-bottom:1px solid #ffffff18}.nav{display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-size:14px;letter-spacing:.12em;font-weight:750}.navlinks{display:flex;gap:20px;font-size:13px}
+.hero{padding:80px 0 58px;max-width:800px}.eyebrow{color:var(--mint);font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.hero h1{font-size:clamp(38px,7vw,68px);line-height:1.03;letter-spacing:-.045em;margin:17px 0 20px}.hero p{max-width:720px;font-size:18px;color:var(--muted);margin:0}.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}.chip{border:1px solid var(--line);border-radius:999px;padding:6px 11px;color:#c8d5e6;font-size:12px;background:#ffffff08}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:0 0 58px}.card{background:linear-gradient(150deg,#17263b,#101a2b);border:1px solid var(--line);border-radius:16px;padding:24px}.card h2,.section h2{margin:0 0 10px;letter-spacing:-.02em}.card p{color:var(--muted);margin:0}.tag{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);font-weight:700}.section{padding:0 0 56px}.section h2{font-size:25px}.section-intro{color:var(--muted);max-width:720px;margin:0 0 19px}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.step{border-top:1px solid var(--line);padding:15px 4px}.step b{display:block;color:var(--mint);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}.step span{color:var(--muted);font-size:14px}
+.quickstart{display:grid;grid-template-columns:1fr 1fr;gap:16px}.command{border:1px solid var(--line);border-radius:14px;background:#080e18;padding:19px}.command h3{font-size:15px;margin:0 0 9px}.command p{font-size:13px;color:var(--muted);margin:0 0 12px}.command pre{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;color:#d8e7fb;font:13px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace}
+.note{border-left:3px solid var(--amber);padding:13px 16px;background:#ffd18b0d;color:#d7e0eb;border-radius:0 9px 9px 0}.links{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}.button{display:inline-block;border:1px solid #ffffff25;background:#ffffff0a;border-radius:9px;padding:10px 14px;font-size:14px}.button.primary{background:#b4d6ff;color:#0b1421;border-color:#b4d6ff;font-weight:700}
+footer{border-top:1px solid #ffffff18;padding:20px 0 30px;color:var(--muted);font-size:12px}
+@media(max-width:760px){.hero{padding-top:55px}.grid,.quickstart{grid-template-columns:1fr}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.navlinks{gap:12px}}
+@media(max-width:460px){.wrap{width:min(100% - 28px,1040px)}.navlinks a:nth-child(2){display:none}.hero p{font-size:16px}.steps{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
-<main>
-<h1>EFMW</h1>
-<p>Repository contents · 16 root items</p>
-<ul>
-<li><a href="https://github.com/enuminous/EFMW/blob/main/.gitignore">.gitignore</a><span>file</span></li>
-<li><a href="https://github.com/enuminous/EFMW/blob/main/dev-server-3001.log">dev-server-3001.log</a><span>file</span></li>
-<li><a href="https://github.com/enuminous/EFMW/blob/main/dev-server.err.log">dev-server.err.log</a><span>file</span></li>
-<li><a href="https://github.com/enuminous/EFMW/blob/main/dev-server.log">dev-server.log</a><span>file</span></li>
-<li><a href="https://github.com/enuminous/EFMW/blob/main/index.html">index.html</a><span>file</span></li>
-<li><a href="https://github.com/enuminous/EFMW/blob/main/MillieComplex%20EFMW%20AGI.py">MillieComplex EFMW AGI.py</a><span>file</span></li>
-<li><a href="https://github.com/enuminous/EFMW/blob/main/next-env.d.ts">next-env.d.ts</a><span>file</span></li>
-<li><a href="https://github.com/enuminous/EFMW/blob/main/next.config.mjs">next.config.mjs</a><span>file</span></li>
-<li><a href="https://github.com/enuminous/EFMW/blob/main/package-lock.json">package-lock.json</a><span>file</span></li>
-<li><a href="https://github.com/enuminous/EFMW/blob/main/package.json">package.json</a><span>file</span></li>
-<li><a href="https://github.com/enuminous/EFMW/blob/main/postcss.config.mjs">postcss.config.mjs</a><span>file</span></li>
-<li><a href="https://github.com/enuminous/EFMW/blob/main/README.md">README.md</a><span>file</span></li>
-<li><a href="https://github.com/enuminous/EFMW/blob/main/server-3002.err.log">server-3002.err.log</a><span>file</span></li>
-<li><a href="https://github.com/enuminous/EFMW/blob/main/server-3002.log">server-3002.log</a><span>file</span></li>
-<li><a href="https://github.com/enuminous/EFMW/blob/main/tailwind.config.ts">tailwind.config.ts</a><span>file</span></li>
-<li><a href="https://github.com/enuminous/EFMW/blob/main/tsconfig.json">tsconfig.json</a><span>file</span></li>
-</ul>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="https://github.com/enuminous/EFMW" aria-label="EFMW GitHub repository">EFMW / MILLIECOMPLEX</a>
+    <nav class="navlinks" aria-label="Main navigation">
+      <a href="#model">The model</a><a href="#run">Run locally</a><a href="https://github.com/enuminous/EFMW">GitHub</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <section class="hero">
+    <div class="eyebrow">A local-first research prototype</div>
+    <h1>EFMW Tutor<br><span style="color:var(--mint)">×</span> MillieComplex</h1>
+    <p>An inspectable recursive state model paired with a lightweight question interface. The prototype updates a bounded internal vector, tracks provenance-aware memory, and reports how much that vector changed.</p>
+    <div class="chips"><span class="chip">Python state engine</span><span class="chip">Optional text model</span><span class="chip">Local server</span><span class="chip">Research prototype</span></div>
+    <div class="links">
+      <a class="button primary" href="https://github.com/enuminous/EFMW/blob/main/README.md">Read the setup guide</a>
+      <a class="button" href="https://github.com/enuminous/EFMW/blob/main/MillieComplex%20EFMW%20AGI.py">Inspect the Python engine</a>
+    </div>
+  </section>
+
+  <section class="grid" id="model" aria-label="Project components">
+    <article class="card">
+      <div class="tag">01 · State model</div>
+      <h2>MillieComplex EFMW</h2>
+      <p>A compact, deterministic prototype with a signed logarithmic transform, bounded recurrent updates, token-hash feature sketches, and optional provenance-aware memory persistence.</p>
+    </article>
+    <article class="card">
+      <div class="tag">02 · Question interface</div>
+      <h2>EFMW Tutor</h2>
+      <p>A small search-style page that sends a prompt to the local <code>/api/tutor</code> endpoint. Without a configured language backend, it returns model diagnostics rather than inventing a text answer.</p>
+    </article>
+  </section>
+
+  <section class="section">
+    <h2>What happens to a prompt</h2>
+    <p class="section-intro">The engine makes its update steps explicit so they can be inspected and tested.</p>
+    <div class="steps">
+      <div class="step"><b>Input</b><span>Tokenize the prompt and create a stable hashed feature sketch.</span></div>
+      <div class="step"><b>Update</b><span>Combine the observation with prior state using bounded feedback and update-rate settings.</span></div>
+      <div class="step"><b>Measure</b><span>Report state change and a stability score derived from that change.</span></div>
+      <div class="step"><b>Respond</b><span>Optionally use a separately configured language model; otherwise return diagnostics only.</span></div>
+    </div>
+  </section>
+
+  <section class="section" id="run">
+    <h2>Run it locally</h2>
+    <p class="section-intro">The Python server binds to localhost. Start without a language model for state diagnostics, or configure a compatible Hugging Face model explicitly for generated text.</p>
+    <div class="quickstart">
+      <div class="command">
+        <h3>Diagnostics only</h3>
+        <p>Start the local page and API without downloading model weights.</p>
+        <pre>python3 "MillieComplex EFMW AGI.py" --serve</pre>
+      </div>
+      <div class="command">
+        <h3>With an optional language model</h3>
+        <p>Install the documented dependencies and choose a compatible model ID.</p>
+        <pre>python3 "MillieComplex EFMW AGI.py" --serve --model-name MODEL_ID</pre>
+      </div>
+    </div>
+    <div class="links"><a class="button" href="https://github.com/enuminous/EFMW/blob/main/MillieComplex%20EFMW%20AGI.py">Demo and checks: <code>--demo</code> / <code>--self-test</code></a><a class="button" href="https://github.com/enuminous/EFMW/blob/main/package.json">Next.js package setup</a></div>
+  </section>
+
+  <section class="section">
+    <h2>Interpret the output carefully</h2>
+    <div class="note">The token-hash encoder is a deterministic feature sketch, not a semantic embedding. State stability measures change in this implementation’s internal vector; it does not establish truth, consciousness, intelligence, or a physical law. Text generation is optional and separate from that diagnostic.</div>
+  </section>
+
+  <section class="section">
+    <h2>Repository guide</h2>
+    <p class="section-intro">Read the README for full setup details, persistence options, backend requirements, and scope. The Python file contains the model, local server, demo, and four built-in checks.</p>
+    <div class="links">
+      <a class="button" href="https://github.com/enuminous/EFMW/blob/main/README.md">README</a>
+      <a class="button" href="https://github.com/enuminous/EFMW/blob/main/MillieComplex%20EFMW%20AGI.py">MillieComplex engine</a>
+      <a class="button" href="https://github.com/enuminous/EFMW/blob/main/package.json">package.json</a>
+    </div>
+  </section>
 </main>
+<footer><div class="wrap">EFMW Tutor and MillieComplex · Research prototype · <a href="https://github.com/enuminous/EFMW">View repository on GitHub</a></div></footer>
 </body>
 </html>
