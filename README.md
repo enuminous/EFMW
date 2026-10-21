@@ -1,5 +1,8 @@
 # EFMW Tutor and MillieComplex
 
+> **External reviewers: START HERE → [Reviewed scope and reproduction guide](https://github.com/enuminous/EFMW_Post156_Zoo_Audit/blob/main/REVIEW_START_HERE.md) · [What this does not claim](https://github.com/enuminous/EFMW_Post156_Zoo_Audit/blob/main/WHAT_THIS_DOES_NOT_CLAIM.md) · [Claims-to-evidence register](https://github.com/enuminous/EFMW_Post156_Zoo_Audit/blob/main/CLAIMS_EVIDENCE_REGISTER.md).** These documents index evidence; they do not certify every repository.
+
+
 <!-- ENUMINOUS-NETWORK:START -->
 **eNuminous network:** [All repositories](https://enuminous.github.io/EFMW/repositories.html) · [EFMW](https://enuminous.github.io/EFMW/) · [102 equations](https://github.com/enuminous/Monolithic_102_EFMW) · [165 triplets](https://enuminous.github.io/FieldSpace/) · [Zoo](https://enuminous.github.io/Tortoise/) · [Lean](https://enuminous.github.io/Aristotle-102-Monolithic-Lean/) · [Engine](https://enuminous.github.io/Archimedes-Engine/) · [Papers](https://enuminous.github.io/medium/papers-essays-index.html) · [Audit](https://github.com/enuminous/EFMW_Post156_Zoo_Audit/blob/main/portfolio/INTERLOCK_AUDIT.md)
 
