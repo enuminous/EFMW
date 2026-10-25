@@ -1,3 +1,35 @@
+# EFMW — review entry point
+
+> **REVIEW · frozen target, 25 October 2026**
+>
+> **Canonical:** [Monolithic-102-Zoo-Lean4 · `efmw-review-2026-10-25`](https://github.com/enuminous/Monolithic-102-Zoo-Lean4/tree/efmw-review-2026-10-25), commit [`01f51acb0b0e564105dcf7f14cc55998d41b91ce`](https://github.com/enuminous/Monolithic-102-Zoo-Lean4/tree/01f51acb0b0e564105dcf7f14cc55998d41b91ce).
+> **Pins:** root Lean **4.19.0** (no Mathlib); analytic Lean **4.28.0**, Mathlib **`8f9d9cff6bd728b17a24e163c9402775d9e6a365`**. All transitive pins are retained in the source manifests.
+> **One build command:** `bash scripts/review.sh` from this repository, with Git, Python 3 and elan/Lake installed. It fetches the tag, verifies its full SHA, builds and audits both frozen packages, checks coverage, then builds the separate metatheory scaffold.
+> **Coverage:** [coverage.json](coverage.json) · **Open work:** [obligations table](review/OPEN_OBLIGATIONS.md) · **Exact lock:** [review-lock.json](review-lock.json).
+> **Observed frozen-source CI:** [successful run 38793976970](https://github.com/enuminous/Monolithic-102-Zoo-Lean4/actions/runs/38793976970). This is a build result, not independent scientific review.
+
+The review snapshot contains **53 structural encodings, 15 analytic models, one partial specialization and 33 open analytic entries**. ME-003 is proved only for the stated flat Minkowski specialization. A structural encoding or a conditional mathematical theorem does not establish the original physical interpretation.
+
+## Which object is canonical?
+
+| Object | Role for this review |
+|---|---|
+| `enuminous/Monolithic-102-Zoo-Lean4@01f51acb0b0e564105dcf7f14cc55998d41b91ce` | **Canonical.** Frozen catalogue and ME-003 specialization. Use the tag above and retain the full SHA in review records. |
+| `enuminous/Monlithic_EFMW_102_Lean4@58f743bd44929049928d0b1d8beee9403c549a0d` | **Historical.** Earlier Aristotle package. Reviews of this object remain reviews of that object; they do not transfer to the canonical target. |
+| Later commits in `Monolithic-102-Zoo-Lean4` | Subsequent research, including linearized gravity. Not silently included in this frozen snapshot. |
+
+These hashes name different repositories, not interchangeable versions of one reviewed object. The canonical designation resolves review routing; it does not invalidate or absorb the older work. Never move this tag. A future scope change gets a new tag and review record.
+
+## Focused review and next tests
+
+- [ME-007 contracted-Bianchi review brief](review/BIANCHI_REVIEW.md): one consistency obligation, exact assumptions and a two-sentence request.
+- [Alternative Zoo limiter](https://github.com/enuminous/Monolithic-Zoo-Lean4/blob/main/ALTERNATIVE_REPORT.md): executable PASS / FAIL / UNRESOLVED / N/A report, separate from the main Zoo report.
+- [September 2 null-arm status](review/NULL_ARM_2026-09-02.md): original artifact recovery and reproducibility requirements.
+- [Metatheory target](metatheory/README.md): a Lean theory interface and an explicitly unproved interpretability target.
+
+<details>
+<summary>Existing tutor, prototype and historical navigation</summary>
+
 # EFMW Tutor and MillieComplex
 
 > **External reviewers: START HERE → [Reviewed scope and reproduction guide](https://github.com/enuminous/EFMW_Post156_Zoo_Audit/blob/main/REVIEW_START_HERE.md) · [What this does not claim](https://github.com/enuminous/EFMW_Post156_Zoo_Audit/blob/main/WHAT_THIS_DOES_NOT_CLAIM.md) · [Claims-to-evidence register](https://github.com/enuminous/EFMW_Post156_Zoo_Audit/blob/main/CLAIMS_EVIDENCE_REGISTER.md).** These documents index evidence; they do not certify every repository.
@@ -83,3 +115,5 @@ npm run dev
 ## Scope
 
 This is a research prototype. The token-hash encoder is a deterministic feature sketch, not a semantic embedding. The state-stability score measures change in an internal vector; it does not establish truth, consciousness, intelligence, or a physical law. A formal result about this implementation would not by itself validate a model of nature.
+
+</details>

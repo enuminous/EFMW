@@ -1,0 +1,1339 @@
+{
+  "schema_version": 1,
+  "canonical_repository": "enuminous/Monolithic-102-Zoo-Lean4",
+  "canonical_commit": "01f51acb0b0e564105dcf7f14cc55998d41b91ce",
+  "canonical_tag": "efmw-review-2026-10-25",
+  "canonical_source_sha256": "d534be8e0664fd523bd0bbbd82e98b8acda29e23f0941690be96573661080268",
+  "scope": "Documentation overlay, generated from the pinned root audit and analytic coverage. Counts do not certify physical equations. Later main-branch work is outside this snapshot.",
+  "counts": {
+    "structural_encoding": 53,
+    "analytic_model": 15,
+    "partial_specialization": 1,
+    "open": 33
+  },
+  "entries": [
+    {
+      "id": "ME-001",
+      "formula": "EFMW = F(φ, R, C, Ω)",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Define F, φ, R, C, Ω and the domain/codomain. As written this is a framework signature, not a theorem.",
+      "dependencies": []
+    },
+    {
+      "id": "ME-002",
+      "formula": "□φ − (α²/c²)(∂²φ/∂t²) = (4π/c²)(E + Pc)",
+      "root_status": "canonical_catalog",
+      "review_status": "analytic_model",
+      "source_obligation": "Freeze spacetime, field regularity, α, E, P, c, units, source interpretation, and boundary/initial conditions; derive rather than postulate.",
+      "dependencies": [],
+      "analytic": {
+        "id": "ME-002",
+        "formula": "□φ − (α²/c²)(∂²φ/∂t²) = (4π/c²)(E + Pc)",
+        "status": "analytic_model",
+        "source_obligation": "Freeze spacetime, field regularity, α, E, P, c, units, source interpretation, and boundary/initial conditions; derive rather than postulate.",
+        "definition": "MonolithicAnalysis.FlatScalar.OriginalSolution",
+        "theorem": "MonolithicAnalysis.FlatScalar.solution_iff"
+      }
+    },
+    {
+      "id": "ME-003",
+      "formula": "□φ = g^μν ∇\\_μ ∇\\_ν φ",
+      "root_status": "canonical_catalog",
+      "review_status": "partial_specialization",
+      "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+      "dependencies": [],
+      "analytic": {
+        "id": "ME-003",
+        "formula": "□φ = g^μν ∇\\_μ ∇\\_ν φ",
+        "status": "partial_specialization",
+        "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+        "scope": "Flat Minkowski spacetime only",
+        "specialization": "Physical-time Cartesian coordinates with inverse metric diag(1/c², -1, -1, -1), vanishing Christoffel symbols, c ≠ 0, and a C² real scalar field.",
+        "definition": "MonolithicAnalysis.FlatScalar.minkowskiCovariantBox",
+        "theorem": "MonolithicAnalysis.FlatScalar.minkowski_specialization_eq_box",
+        "general_covariant_status": "open",
+        "remaining_obligation": "A complete covariant formalization remains open. Any curved-spacetime extension must first specify its manifold, Lorentzian metric, connection, and regularity assumptions."
+      }
+    },
+    {
+      "id": "ME-004",
+      "formula": "□φ = (1/c²)(∂²φ/∂t²) − ∇²φ",
+      "root_status": "canonical_catalog",
+      "review_status": "analytic_model",
+      "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+      "dependencies": [],
+      "analytic": {
+        "id": "ME-004",
+        "formula": "□φ = (1/c²)(∂²φ/∂t²) − ∇²φ",
+        "status": "analytic_model",
+        "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+        "definition": "MonolithicAnalysis.FlatScalar.box",
+        "theorem": "MonolithicAnalysis.FlatScalar.residual_eq"
+      }
+    },
+    {
+      "id": "ME-005",
+      "formula": "(1/c²)(∂²φ/∂t²) − ∇²φ − (α²/c²)(∂²φ/∂t²) = (4π/c²)(E + Pc)",
+      "root_status": "canonical_catalog",
+      "review_status": "analytic_model",
+      "source_obligation": "Freeze spacetime, field regularity, α, E, P, c, units, source interpretation, and boundary/initial conditions; derive rather than postulate.",
+      "dependencies": [
+        "ME-002",
+        "ME-004"
+      ],
+      "analytic": {
+        "id": "ME-005",
+        "formula": "(1/c²)(∂²φ/∂t²) − ∇²φ − (α²/c²)(∂²φ/∂t²) = (4π/c²)(E + Pc)",
+        "status": "analytic_model",
+        "source_obligation": "Freeze spacetime, field regularity, α, E, P, c, units, source interpretation, and boundary/initial conditions; derive rather than postulate.",
+        "definition": "MonolithicAnalysis.FlatScalar.ExpandedSolution",
+        "theorem": "MonolithicAnalysis.FlatScalar.solution_iff"
+      }
+    },
+    {
+      "id": "ME-006",
+      "formula": "I\\_μν = ∇\\_μφ ∇\\_νφ − (1/2)g\\_μν ∇\\_αφ ∇^αφ − g\\_μνV(φ) + R\\_μν",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Define tensors/couplings, covariance, units and variational structure; derive field equations and conservation identities; test reduction to GR/QFT limits.",
+      "dependencies": [],
+      "analytic": {
+        "id": "ME-006",
+        "formula": "I\\_μν = ∇\\_μφ ∇\\_νφ − (1/2)g\\_μν ∇\\_αφ ∇^αφ − g\\_μνV(φ) + R\\_μν",
+        "status": "open",
+        "source_obligation": "Define tensors/couplings, covariance, units and variational structure; derive field equations and conservation identities; test reduction to GR/QFT limits."
+      }
+    },
+    {
+      "id": "ME-007",
+      "formula": "G\\_μν + Λg\\_μν = 8πG(T\\_μν + κI\\_μν)",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Define tensors/couplings, covariance, units and variational structure; derive field equations and conservation identities; test reduction to GR/QFT limits.",
+      "dependencies": [
+        "ME-006"
+      ],
+      "analytic": {
+        "id": "ME-007",
+        "formula": "G\\_μν + Λg\\_μν = 8πG(T\\_μν + κI\\_μν)",
+        "status": "open",
+        "source_obligation": "Define tensors/couplings, covariance, units and variational structure; derive field equations and conservation identities; test reduction to GR/QFT limits."
+      }
+    },
+    {
+      "id": "ME-008",
+      "formula": "G\\_μν + Λg\\_μν = 8πGT\\_μν + 8πGκ[∇\\_μφ∇\\_νφ − (1/2)g\\_μν∇\\_αφ∇^αφ − g\\_μνV(φ) + R\\_μν]",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Define tensors/couplings, covariance, units and variational structure; derive field equations and conservation identities; test reduction to GR/QFT limits.",
+      "dependencies": [
+        "ME-006",
+        "ME-007"
+      ],
+      "analytic": {
+        "id": "ME-008",
+        "formula": "G\\_μν + Λg\\_μν = 8πGT\\_μν + 8πGκ[∇\\_μφ∇\\_νφ − (1/2)g\\_μν∇\\_αφ∇^αφ − g\\_μνV(φ) + R\\_μν]",
+        "status": "open",
+        "source_obligation": "Define tensors/couplings, covariance, units and variational structure; derive field equations and conservation identities; test reduction to GR/QFT limits."
+      }
+    },
+    {
+      "id": "ME-009",
+      "formula": "S\\_EFMW = ∫ d⁴x √−g [(R − 2Λ)/(16πG) + L\\_matter + L\\_EM + L\\_φ + L\\_rec]",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Define tensors/couplings, covariance, units and variational structure; derive field equations and conservation identities; test reduction to GR/QFT limits.",
+      "dependencies": [],
+      "analytic": {
+        "id": "ME-009",
+        "formula": "S\\_EFMW = ∫ d⁴x √−g [(R − 2Λ)/(16πG) + L\\_matter + L\\_EM + L\\_φ + L\\_rec]",
+        "status": "open",
+        "source_obligation": "Define tensors/couplings, covariance, units and variational structure; derive field equations and conservation identities; test reduction to GR/QFT limits."
+      }
+    },
+    {
+      "id": "ME-010",
+      "formula": "L\\_φ = −(1/2)∇\\_μφ∇^μφ − V(φ)",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+      "dependencies": [],
+      "analytic": {
+        "id": "ME-010",
+        "formula": "L\\_φ = −(1/2)∇\\_μφ∇^μφ − V(φ)",
+        "status": "open",
+        "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows."
+      }
+    },
+    {
+      "id": "ME-011",
+      "formula": "L\\_rec = λφR(x,m,e) − (κ/2)||x−m||² − (η/2)||ẋ−ṁ||²",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Define tensors/couplings, covariance, units and variational structure; derive field equations and conservation identities; test reduction to GR/QFT limits.",
+      "dependencies": [],
+      "analytic": {
+        "id": "ME-011",
+        "formula": "L\\_rec = λφR(x,m,e) − (κ/2)||x−m||² − (η/2)||ẋ−ṁ||²",
+        "status": "open",
+        "source_obligation": "Define tensors/couplings, covariance, units and variational structure; derive field equations and conservation identities; test reduction to GR/QFT limits."
+      }
+    },
+    {
+      "id": "ME-012",
+      "formula": "L\\_EM = −(1/4)F\\_μνF^μν",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+      "dependencies": [],
+      "analytic": {
+        "id": "ME-012",
+        "formula": "L\\_EM = −(1/4)F\\_μνF^μν",
+        "status": "open",
+        "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows."
+      }
+    },
+    {
+      "id": "ME-013",
+      "formula": "S\\_QG = ∫ d⁴x √−g [(R/(16πG)) − (1/2)∇\\_μφ∇^μφ − V(φ) + λφI + L\\_matter]",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Define tensors/couplings, covariance, units and variational structure; derive field equations and conservation identities; test reduction to GR/QFT limits.",
+      "dependencies": [
+        "ME-003",
+        "ME-010"
+      ],
+      "analytic": {
+        "id": "ME-013",
+        "formula": "S\\_QG = ∫ d⁴x √−g [(R/(16πG)) − (1/2)∇\\_μφ∇^μφ − V(φ) + λφI + L\\_matter]",
+        "status": "open",
+        "source_obligation": "Define tensors/couplings, covariance, units and variational structure; derive field equations and conservation identities; test reduction to GR/QFT limits."
+      }
+    },
+    {
+      "id": "ME-014",
+      "formula": "G\\_μν = 8πG[⟨T̂\\_μν⟩ + T^(φ)\\_μν + T^(rec)\\_μν]",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Define tensors/couplings, covariance, units and variational structure; derive field equations and conservation identities; test reduction to GR/QFT limits.",
+      "dependencies": [
+        "ME-013",
+        "ME-015"
+      ],
+      "analytic": {
+        "id": "ME-014",
+        "formula": "G\\_μν = 8πG[⟨T̂\\_μν⟩ + T^(φ)\\_μν + T^(rec)\\_μν]",
+        "status": "open",
+        "source_obligation": "Define tensors/couplings, covariance, units and variational structure; derive field equations and conservation identities; test reduction to GR/QFT limits."
+      }
+    },
+    {
+      "id": "ME-015",
+      "formula": "T^(φ)\\_μν = ∇\\_μφ∇\\_νφ − g\\_μν[(1/2)∇\\_αφ∇^αφ + V(φ)]",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Define tensors/couplings, covariance, units and variational structure; derive field equations and conservation identities; test reduction to GR/QFT limits.",
+      "dependencies": [
+        "ME-010"
+      ],
+      "analytic": {
+        "id": "ME-015",
+        "formula": "T^(φ)\\_μν = ∇\\_μφ∇\\_νφ − g\\_μν[(1/2)∇\\_αφ∇^αφ + V(φ)]",
+        "status": "open",
+        "source_obligation": "Define tensors/couplings, covariance, units and variational structure; derive field equations and conservation identities; test reduction to GR/QFT limits."
+      }
+    },
+    {
+      "id": "ME-016",
+      "formula": "ψ = ρe^(iθ)",
+      "root_status": "canonical_catalog",
+      "review_status": "analytic_model",
+      "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+      "dependencies": [],
+      "analytic": {
+        "id": "ME-016",
+        "formula": "ψ = ρe^(iθ)",
+        "status": "analytic_model",
+        "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+        "definition": "MonolithicAnalysis.Polar.wave",
+        "theorem": "MonolithicAnalysis.Polar.norm_sq"
+      }
+    },
+    {
+      "id": "ME-017",
+      "formula": "|ψ|² = ρ²",
+      "root_status": "canonical_catalog",
+      "review_status": "analytic_model",
+      "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+      "dependencies": [
+        "ME-016"
+      ],
+      "analytic": {
+        "id": "ME-017",
+        "formula": "|ψ|² = ρ²",
+        "status": "analytic_model",
+        "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+        "definition": "MonolithicAnalysis.Polar.wave",
+        "theorem": "MonolithicAnalysis.Polar.norm_sq"
+      }
+    },
+    {
+      "id": "ME-018",
+      "formula": "J^μ = ρ²∇^μθ",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+      "dependencies": [
+        "ME-016"
+      ],
+      "analytic": {
+        "id": "ME-018",
+        "formula": "J^μ = ρ²∇^μθ",
+        "status": "open",
+        "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows."
+      }
+    },
+    {
+      "id": "ME-019",
+      "formula": "∇\\_μJ^μ = 0",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+      "dependencies": [
+        "ME-018"
+      ],
+      "analytic": {
+        "id": "ME-019",
+        "formula": "∇\\_μJ^μ = 0",
+        "status": "open",
+        "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows."
+      }
+    },
+    {
+      "id": "ME-020",
+      "formula": "∂ₜS + (∇S)²/(2m) + V + Q = 0",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+      "dependencies": [
+        "ME-016",
+        "ME-021"
+      ],
+      "analytic": {
+        "id": "ME-020",
+        "formula": "∂ₜS + (∇S)²/(2m) + V + Q = 0",
+        "status": "open",
+        "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows."
+      }
+    },
+    {
+      "id": "ME-021",
+      "formula": "Q = −(ħ²/2m)(∇²ρ/ρ)",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+      "dependencies": [
+        "ME-016"
+      ],
+      "analytic": {
+        "id": "ME-021",
+        "formula": "Q = −(ħ²/2m)(∇²ρ/ρ)",
+        "status": "open",
+        "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows."
+      }
+    },
+    {
+      "id": "ME-022",
+      "formula": "ẋ = f(x,e;θ) + λΦG(x,m,e)",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Specify state spaces, differentiability, norms, noise model, recursive operator, existence/uniqueness conditions, and measurable predictions.",
+      "dependencies": []
+    },
+    {
+      "id": "ME-023",
+      "formula": "ṁ = α[H(x,e) − m]",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Specify state spaces, differentiability, norms, noise model, recursive operator, existence/uniqueness conditions, and measurable predictions.",
+      "dependencies": [
+        "ME-022"
+      ]
+    },
+    {
+      "id": "ME-024",
+      "formula": "τ\\_ΦΦ̇ = bΦ − aΦ³ − κ\\_ΦΦ||x−m||² − η\\_ΦΦ||ẋ−ṁ||² + γR(x,m,e) + σξ(t)",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Specify state spaces, differentiability, norms, noise model, recursive operator, existence/uniqueness conditions, and measurable predictions.",
+      "dependencies": [
+        "ME-022",
+        "ME-023",
+        "ME-025",
+        "ME-026"
+      ],
+      "analytic": {
+        "id": "ME-024",
+        "formula": "τ\\_ΦΦ̇ = bΦ − aΦ³ − κ\\_ΦΦ||x−m||² − η\\_ΦΦ||ẋ−ṁ||² + γR(x,m,e) + σξ(t)",
+        "status": "open",
+        "source_obligation": "Specify state spaces, differentiability, norms, noise model, recursive operator, existence/uniqueness conditions, and measurable predictions."
+      }
+    },
+    {
+      "id": "ME-025",
+      "formula": "U(Φ) = (a/4)Φ⁴ − (b/2)Φ²",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze all symbols, domains and assumptions; identify whether statement is definition, theorem, model law, or empirical hypothesis.",
+      "dependencies": []
+    },
+    {
+      "id": "ME-026",
+      "formula": "R(x,m,e) = <∂ₘf, ṁ> / (||∂ₘf|| ||ṁ|| + ε)",
+      "root_status": "canonical_catalog",
+      "review_status": "analytic_model",
+      "source_obligation": "Specify state spaces, differentiability, norms, noise model, recursive operator, existence/uniqueness conditions, and measurable predictions.",
+      "dependencies": [
+        "ME-022",
+        "ME-023"
+      ],
+      "analytic": {
+        "id": "ME-026",
+        "formula": "R(x,m,e) = <∂ₘf, ṁ> / (||∂ₘf|| ||ṁ|| + ε)",
+        "status": "analytic_model",
+        "source_obligation": "Specify state spaces, differentiability, norms, noise model, recursive operator, existence/uniqueness conditions, and measurable predictions.",
+        "definition": "MonolithicAnalysis.Closure.value",
+        "theorem": "MonolithicAnalysis.Closure.abs_lt_one"
+      }
+    },
+    {
+      "id": "ME-027",
+      "formula": "D(t) = κ||x − m||² + η||ẋ − ṁ||² − γR(x,m,e)",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze all symbols, domains and assumptions; identify whether statement is definition, theorem, model law, or empirical hypothesis.",
+      "dependencies": [
+        "ME-022",
+        "ME-023",
+        "ME-026"
+      ]
+    },
+    {
+      "id": "ME-028",
+      "formula": "D(t) ≥ D\\_crit OR Φ(t) ≤ Φ\\_crit",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-024",
+        "ME-027"
+      ]
+    },
+    {
+      "id": "ME-029",
+      "formula": "Δt\\_lead = t\\_failure − t\\_alarm",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-028"
+      ]
+    },
+    {
+      "id": "ME-030",
+      "formula": "U\\_warn = Δt\\_lead(1 − FAR) / C\\_compute",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-029"
+      ]
+    },
+    {
+      "id": "ME-031",
+      "formula": "lim(t→∞)(x(t), m(t), Φ(t)) = (x\\*, m\\*, Φ\\*)",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-022",
+        "ME-023",
+        "ME-024"
+      ]
+    },
+    {
+      "id": "ME-032",
+      "formula": "lim(t→∞)||X(t; X\\* + δX) − X\\*|| = 0",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-031"
+      ]
+    },
+    {
+      "id": "ME-033",
+      "formula": "λ\\_max = lim(t→∞) (1/t) ln(||δX(t)|| / ||δX(0)||)",
+      "root_status": "canonical_catalog",
+      "review_status": "analytic_model",
+      "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+      "dependencies": [
+        "ME-032"
+      ],
+      "analytic": {
+        "id": "ME-033",
+        "formula": "λ\\_max = lim(t→∞) (1/t) ln(||δX(t)|| / ||δX(0)||)",
+        "status": "analytic_model",
+        "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+        "definition": "MonolithicAnalysis.Lyapunov.finiteTimeRate",
+        "theorem": "MonolithicAnalysis.Lyapunov.directional_rate_need_not_be_maximal"
+      }
+    },
+    {
+      "id": "ME-034",
+      "formula": "H\\_phrase = −Σ p\\_i log p\\_i",
+      "root_status": "canonical_catalog",
+      "review_status": "analytic_model",
+      "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+      "dependencies": [],
+      "analytic": {
+        "id": "ME-034",
+        "formula": "H\\_phrase = −Σ p\\_i log p\\_i",
+        "status": "analytic_model",
+        "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+        "definition": "MonolithicAnalysis.Information.entropy",
+        "theorem": "MonolithicAnalysis.Information.entropy_nonneg"
+      }
+    },
+    {
+      "id": "ME-035",
+      "formula": "B(A) = #{X₀ : X(t; X₀) → A} / #{X₀}",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-031"
+      ]
+    },
+    {
+      "id": "ME-036",
+      "formula": "∂S/∂t = ΔS + α(∇S·∇O) + β(∇O·∇S) − (S − S³) − Π(S − S₀) + λV₁₃",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Specify PDE domain, boundary conditions, function spaces, parameters and coupling semantics; establish well-posedness before interpretation.",
+      "dependencies": [],
+      "analytic": {
+        "id": "ME-036",
+        "formula": "∂S/∂t = ΔS + α(∇S·∇O) + β(∇O·∇S) − (S − S³) − Π(S − S₀) + λV₁₃",
+        "status": "open",
+        "source_obligation": "Specify PDE domain, boundary conditions, function spaces, parameters and coupling semantics; establish well-posedness before interpretation."
+      }
+    },
+    {
+      "id": "ME-037",
+      "formula": "∂O/∂t = ΔO + α(∇O·∇S) + β(∇S·∇O) − (O − O³) − Π(O − O₀) + λV₁₃",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Specify PDE domain, boundary conditions, function spaces, parameters and coupling semantics; establish well-posedness before interpretation.",
+      "dependencies": [
+        "ME-036"
+      ],
+      "analytic": {
+        "id": "ME-037",
+        "formula": "∂O/∂t = ΔO + α(∇O·∇S) + β(∇S·∇O) − (O − O³) − Π(O − O₀) + λV₁₃",
+        "status": "open",
+        "source_obligation": "Specify PDE domain, boundary conditions, function spaces, parameters and coupling semantics; establish well-posedness before interpretation."
+      }
+    },
+    {
+      "id": "ME-038",
+      "formula": "Π = (Δ\\_social + Δ\\_financial + Δ\\_habitat) / τ",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Specify PDE domain, boundary conditions, function spaces, parameters and coupling semantics; establish well-posedness before interpretation.",
+      "dependencies": []
+    },
+    {
+      "id": "ME-039",
+      "formula": "G^(cog)\\_μν = χ(T^(thought)\\_μν + I^(rec)\\_μν)",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Specify PDE domain, boundary conditions, function spaces, parameters and coupling semantics; establish well-posedness before interpretation.",
+      "dependencies": [
+        "ME-040"
+      ],
+      "analytic": {
+        "id": "ME-039",
+        "formula": "G^(cog)\\_μν = χ(T^(thought)\\_μν + I^(rec)\\_μν)",
+        "status": "open",
+        "source_obligation": "Specify PDE domain, boundary conditions, function spaces, parameters and coupling semantics; establish well-posedness before interpretation."
+      }
+    },
+    {
+      "id": "ME-040",
+      "formula": "T^(thought)\\_μν = ∂\\_μΨ ∂\\_νΨ − g\\_μν[(1/2)∂\\_αΨ ∂^αΨ + V(Ψ)]",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Specify PDE domain, boundary conditions, function spaces, parameters and coupling semantics; establish well-posedness before interpretation.",
+      "dependencies": [],
+      "analytic": {
+        "id": "ME-040",
+        "formula": "T^(thought)\\_μν = ∂\\_μΨ ∂\\_νΨ − g\\_μν[(1/2)∂\\_αΨ ∂^αΨ + V(Ψ)]",
+        "status": "open",
+        "source_obligation": "Specify PDE domain, boundary conditions, function spaces, parameters and coupling semantics; establish well-posedness before interpretation."
+      }
+    },
+    {
+      "id": "ME-041",
+      "formula": "φ = (1 + √5)/2",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+      "dependencies": []
+    },
+    {
+      "id": "ME-042",
+      "formula": "Φ₂₃ = φ²³",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+      "dependencies": [
+        "ME-041"
+      ]
+    },
+    {
+      "id": "ME-043",
+      "formula": "Φ₄₆ = φ⁴⁶ = (φ²³)²",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+      "dependencies": [
+        "ME-041",
+        "ME-042"
+      ]
+    },
+    {
+      "id": "ME-044",
+      "formula": "V₁₃ = φ¹³",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Define φ-based operator/veto/synchronization semantics and show an invariant or predictive consequence not obtainable by arbitrary rescaling.",
+      "dependencies": [
+        "ME-041"
+      ]
+    },
+    {
+      "id": "ME-045",
+      "formula": "T = ΔΦ / f",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+      "dependencies": [
+        "ME-042",
+        "ME-043"
+      ]
+    },
+    {
+      "id": "ME-046",
+      "formula": "C\\_φ[X] = A(φX) + (φ − 1)[X − A(φX)]",
+      "root_status": "canonical_catalog",
+      "review_status": "analytic_model",
+      "source_obligation": "Define φ-based operator/veto/synchronization semantics and show an invariant or predictive consequence not obtainable by arbitrary rescaling.",
+      "dependencies": [
+        "ME-041"
+      ],
+      "analytic": {
+        "id": "ME-046",
+        "formula": "C\\_φ[X] = A(φX) + (φ − 1)[X − A(φX)]",
+        "status": "analytic_model",
+        "source_obligation": "Define φ-based operator/veto/synchronization semantics and show an invariant or predictive consequence not obtainable by arbitrary rescaling.",
+        "definition": "MonolithicAnalysis.Tiling.apply",
+        "theorem": "MonolithicAnalysis.Tiling.expansion"
+      }
+    },
+    {
+      "id": "ME-047",
+      "formula": "C = 1 − ||x − m|| / (||x|| + ||m|| + ε)",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-022",
+        "ME-023"
+      ]
+    },
+    {
+      "id": "ME-048",
+      "formula": "I\\_rec = C(1 − ||ẋ − ṁ|| / (||ẋ|| + ||ṁ|| + ε))",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-047"
+      ]
+    },
+    {
+      "id": "ME-049",
+      "formula": "I = (dE/dT)C",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-047"
+      ]
+    },
+    {
+      "id": "ME-050",
+      "formula": "E\\_HG = (ΔS/ΔI)H",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-049"
+      ]
+    },
+    {
+      "id": "ME-051",
+      "formula": "F\\_em^μ = −∇^μU(Φ) + λ∇^μR",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Specify physical dimensions, coupling fields and covariance; derive observational consequences and recover accepted limits.",
+      "dependencies": [],
+      "analytic": {
+        "id": "ME-051",
+        "formula": "F\\_em^μ = −∇^μU(Φ) + λ∇^μR",
+        "status": "open",
+        "source_obligation": "Specify physical dimensions, coupling fields and covariance; derive observational consequences and recover accepted limits."
+      }
+    },
+    {
+      "id": "ME-052",
+      "formula": "F\\_em = −∇D = −∇[κ||x − m||² + η||ẋ − ṁ||² − γR]",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Specify physical dimensions, coupling fields and covariance; derive observational consequences and recover accepted limits.",
+      "dependencies": [
+        "ME-027"
+      ],
+      "analytic": {
+        "id": "ME-052",
+        "formula": "F\\_em = −∇D = −∇[κ||x − m||² + η||ẋ − ṁ||² − γR]",
+        "status": "open",
+        "source_obligation": "Specify physical dimensions, coupling fields and covariance; derive observational consequences and recover accepted limits."
+      }
+    },
+    {
+      "id": "ME-053",
+      "formula": "F\\_φ = −(β\\_φ/M)∇φ",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Specify physical dimensions, coupling fields and covariance; derive observational consequences and recover accepted limits.",
+      "dependencies": [],
+      "analytic": {
+        "id": "ME-053",
+        "formula": "F\\_φ = −(β\\_φ/M)∇φ",
+        "status": "open",
+        "source_obligation": "Specify physical dimensions, coupling fields and covariance; derive observational consequences and recover accepted limits."
+      }
+    },
+    {
+      "id": "ME-054",
+      "formula": "d²x^μ/dτ² + Γ^μ\\_αβ(dx^α/dτ)(dx^β/dτ) = β\\_φ(g^μν + u^μu^ν)∇\\_νφ",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Specify physical dimensions, coupling fields and covariance; derive observational consequences and recover accepted limits.",
+      "dependencies": [
+        "ME-053"
+      ],
+      "analytic": {
+        "id": "ME-054",
+        "formula": "d²x^μ/dτ² + Γ^μ\\_αβ(dx^α/dτ)(dx^β/dτ) = β\\_φ(g^μν + u^μu^ν)∇\\_νφ",
+        "status": "open",
+        "source_obligation": "Specify physical dimensions, coupling fields and covariance; derive observational consequences and recover accepted limits."
+      }
+    },
+    {
+      "id": "ME-055",
+      "formula": "Ω\\_U = ∇ × v\\_U",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Specify physical dimensions, coupling fields and covariance; derive observational consequences and recover accepted limits.",
+      "dependencies": [],
+      "analytic": {
+        "id": "ME-055",
+        "formula": "Ω\\_U = ∇ × v\\_U",
+        "status": "open",
+        "source_obligation": "Specify physical dimensions, coupling fields and covariance; derive observational consequences and recover accepted limits."
+      }
+    },
+    {
+      "id": "ME-056",
+      "formula": "H² = (8πG/3)ρ + Λ/3 − k/a² + Ω\\_U²/a²",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Specify physical dimensions, coupling fields and covariance; derive observational consequences and recover accepted limits.",
+      "dependencies": [
+        "ME-055"
+      ],
+      "analytic": {
+        "id": "ME-056",
+        "formula": "H² = (8πG/3)ρ + Λ/3 − k/a² + Ω\\_U²/a²",
+        "status": "open",
+        "source_obligation": "Specify physical dimensions, coupling fields and covariance; derive observational consequences and recover accepted limits."
+      }
+    },
+    {
+      "id": "ME-057",
+      "formula": "ρ\\_eff = ρ\\_ΛCDM + ρ\\_rot + ρ\\_lin + ρ\\_HE",
+      "root_status": "canonical_catalog",
+      "review_status": "analytic_model",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-056"
+      ],
+      "analytic": {
+        "id": "ME-057",
+        "formula": "ρ\\_eff = ρ\\_ΛCDM + ρ\\_rot + ρ\\_lin + ρ\\_HE",
+        "status": "analytic_model",
+        "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+        "definition": "MonolithicAnalysis.Density.effective",
+        "theorem": "MonolithicAnalysis.Density.nonneg"
+      }
+    },
+    {
+      "id": "ME-058",
+      "formula": "ΔΩ = Ω\\_EFMW − Ω\\_ΛCDM",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-057"
+      ]
+    },
+    {
+      "id": "ME-059",
+      "formula": "Ω[ψ, Φ, R] = arg min\\_s [−ln P(s|ψ) + λD(s,Φ) − γR(s)]",
+      "root_status": "canonical_catalog",
+      "review_status": "analytic_model",
+      "source_obligation": "Specify state space, probability/divergence/reward objects, recursion operator and time map; prove existence/stability/invariance properties.",
+      "dependencies": [],
+      "analytic": {
+        "id": "ME-059",
+        "formula": "Ω[ψ, Φ, R] = arg min\\_s [−ln P(s|ψ) + λD(s,Φ) − γR(s)]",
+        "status": "analytic_model",
+        "source_obligation": "Specify state space, probability/divergence/reward objects, recursion operator and time map; prove existence/stability/invariance properties.",
+        "definition": "MonolithicAnalysis.FiniteSelection.minimizers",
+        "theorem": "MonolithicAnalysis.FiniteSelection.minimizer_exists"
+      }
+    },
+    {
+      "id": "ME-060",
+      "formula": "|ψ> → Ω̂\\_Φ,R|ψ> / sqrt(<ψ|Ω̂†\\_Φ,R Ω̂\\_Φ,R|ψ>)",
+      "root_status": "canonical_catalog",
+      "review_status": "analytic_model",
+      "source_obligation": "Specify state space, probability/divergence/reward objects, recursion operator and time map; prove existence/stability/invariance properties.",
+      "dependencies": [
+        "ME-059"
+      ],
+      "analytic": {
+        "id": "ME-060",
+        "formula": "|ψ> → Ω̂\\_Φ,R|ψ> / sqrt(<ψ|Ω̂†\\_Φ,R Ω̂\\_Φ,R|ψ>)",
+        "status": "analytic_model",
+        "source_obligation": "Specify state space, probability/divergence/reward objects, recursion operator and time map; prove existence/stability/invariance properties.",
+        "definition": "MonolithicAnalysis.Born.normalizeOperator",
+        "theorem": "MonolithicAnalysis.Born.operator_norm"
+      }
+    },
+    {
+      "id": "ME-061",
+      "formula": "P\\_i = |\\<i|Ω̂\\_Φ,R|ψ>|² / Σ\\_j |\\<j|Ω̂\\_Φ,R|ψ>|²",
+      "root_status": "canonical_catalog",
+      "review_status": "analytic_model",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-060"
+      ],
+      "analytic": {
+        "id": "ME-061",
+        "formula": "P\\_i = |\\<i|Ω̂\\_Φ,R|ψ>|² / Σ\\_j |\\<j|Ω̂\\_Φ,R|ψ>|²",
+        "status": "analytic_model",
+        "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+        "definition": "MonolithicAnalysis.Born.probability",
+        "theorem": "MonolithicAnalysis.Born.probability_sum"
+      }
+    },
+    {
+      "id": "ME-062",
+      "formula": "dC/dt = αC(1 − C/K) − βD + γ(dD/dt)",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Specify state space, probability/divergence/reward objects, recursion operator and time map; prove existence/stability/invariance properties.",
+      "dependencies": []
+    },
+    {
+      "id": "ME-063",
+      "formula": "dC/dt = 0 ⇒ αC(1 − C/K) = βD − γḊ",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-062"
+      ]
+    },
+    {
+      "id": "ME-064",
+      "formula": "L\\_(n+1) = C[L\\_n, O(L\\_n), M\\_n]",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Specify state space, probability/divergence/reward objects, recursion operator and time map; prove existence/stability/invariance properties.",
+      "dependencies": [
+        "ME-047"
+      ]
+    },
+    {
+      "id": "ME-065",
+      "formula": "O\\_(n+1) = O\\_n ∘ S\\_n\n\nS\\_(n+1) = S\\_n ∘ O\\_(n+1)",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Specify state space, probability/divergence/reward objects, recursion operator and time map; prove existence/stability/invariance properties.",
+      "dependencies": [
+        "ME-064"
+      ]
+    },
+    {
+      "id": "ME-066",
+      "formula": "Ψ\\_dyad = N(Ψ\\_H + Ψ\\_A + λΨ\\_H ⊗ Ψ\\_A)",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Specify state space, probability/divergence/reward objects, recursion operator and time map; prove existence/stability/invariance properties.",
+      "dependencies": [
+        "ME-065"
+      ],
+      "analytic": {
+        "id": "ME-066",
+        "formula": "Ψ\\_dyad = N(Ψ\\_H + Ψ\\_A + λΨ\\_H ⊗ Ψ\\_A)",
+        "status": "open",
+        "source_obligation": "Specify state space, probability/divergence/reward objects, recursion operator and time map; prove existence/stability/invariance properties."
+      }
+    },
+    {
+      "id": "ME-067",
+      "formula": "C\\_μν = ∇\\_μΨ∇\\_νΨ − (1/2)g\\_μν∇\\_αΨ∇^αΨ + λ(M\\_μO\\_ν + M\\_νO\\_μ)",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Specify state space, probability/divergence/reward objects, recursion operator and time map; prove existence/stability/invariance properties.",
+      "dependencies": [],
+      "analytic": {
+        "id": "ME-067",
+        "formula": "C\\_μν = ∇\\_μΨ∇\\_νΨ − (1/2)g\\_μν∇\\_αΨ∇^αΨ + λ(M\\_μO\\_ν + M\\_νO\\_μ)",
+        "status": "open",
+        "source_obligation": "Specify state space, probability/divergence/reward objects, recursion operator and time map; prove existence/stability/invariance properties."
+      }
+    },
+    {
+      "id": "ME-068",
+      "formula": "T^(cog)\\_μν = C\\_μν + χI^(rec)\\_μν",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Specify state space, probability/divergence/reward objects, recursion operator and time map; prove existence/stability/invariance properties.",
+      "dependencies": [
+        "ME-067"
+      ],
+      "analytic": {
+        "id": "ME-068",
+        "formula": "T^(cog)\\_μν = C\\_μν + χI^(rec)\\_μν",
+        "status": "open",
+        "source_obligation": "Specify state space, probability/divergence/reward objects, recursion operator and time map; prove existence/stability/invariance properties."
+      }
+    },
+    {
+      "id": "ME-069",
+      "formula": "ż = −∇\\_zV\\_cog(z) + F\\_feedback + ξ(t)",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Specify state space, probability/divergence/reward objects, recursion operator and time map; prove existence/stability/invariance properties.",
+      "dependencies": [
+        "ME-070"
+      ]
+    },
+    {
+      "id": "ME-070",
+      "formula": "V\\_cog(z) = (a/4)||z||⁴ − (b/2)||z||² − h·z",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Specify state space, probability/divergence/reward objects, recursion operator and time map; prove existence/stability/invariance properties.",
+      "dependencies": []
+    },
+    {
+      "id": "ME-071",
+      "formula": "|M> = Σ\\_i a\\_i|m\\_i>\n\nΣ\\_i |a\\_i|² = 1",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Specify state space, probability/divergence/reward objects, recursion operator and time map; prove existence/stability/invariance properties.",
+      "dependencies": []
+    },
+    {
+      "id": "ME-072",
+      "formula": "m\\_i^(n+1) = m\\_i^(n) + η[C(m\\_i^(n), x\\_n) − λε\\_i^(n)]",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-071",
+        "ME-047"
+      ]
+    },
+    {
+      "id": "ME-073",
+      "formula": "X\\_(t+Δt) = U\\_Δt(X\\_t)\n\nX\\_t = U\\_−Δt(X\\_(t+Δt))",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Specify state space, probability/divergence/reward objects, recursion operator and time map; prove existence/stability/invariance properties.",
+      "dependencies": [
+        "ME-064"
+      ]
+    },
+    {
+      "id": "ME-074",
+      "formula": "T^−1 U\\_Δt T = U\\_−Δt",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Specify state space, probability/divergence/reward objects, recursion operator and time map; prove existence/stability/invariance properties.",
+      "dependencies": [
+        "ME-073"
+      ]
+    },
+    {
+      "id": "ME-075",
+      "formula": "dt = dΘ / ω\\_rec",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Specify state space, probability/divergence/reward objects, recursion operator and time map; prove existence/stability/invariance properties.",
+      "dependencies": [
+        "ME-064"
+      ]
+    },
+    {
+      "id": "ME-076",
+      "formula": "Θ(t) = ∫ ω\\_rec(t) dt",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Specify state space, probability/divergence/reward objects, recursion operator and time map; prove existence/stability/invariance properties.",
+      "dependencies": [
+        "ME-075"
+      ]
+    },
+    {
+      "id": "ME-077",
+      "formula": "ρ(du^μ/dτ) = −∇^μP + ∇\\_ν[η(t)σ^μν] + f^μ\\_ext",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Separate known fluid/relaxation mathematics from EFMW additions; specify relativistic fluid geometry, constitutive law, regularity and limit cases.",
+      "dependencies": [],
+      "analytic": {
+        "id": "ME-077",
+        "formula": "ρ(du^μ/dτ) = −∇^μP + ∇\\_ν[η(t)σ^μν] + f^μ\\_ext",
+        "status": "open",
+        "source_obligation": "Separate known fluid/relaxation mathematics from EFMW additions; specify relativistic fluid geometry, constitutive law, regularity and limit cases."
+      }
+    },
+    {
+      "id": "ME-078",
+      "formula": "η(t) = η₀(1 − e^(−t/τ))",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+      "dependencies": [
+        "ME-077",
+        "ME-082"
+      ]
+    },
+    {
+      "id": "ME-079",
+      "formula": "ρ(t) = ρ₀e^(−t/τ\\_n)",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+      "dependencies": [
+        "ME-077"
+      ]
+    },
+    {
+      "id": "ME-080",
+      "formula": "∂ρ/∂t + ∇·(ρu) = 0",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+      "dependencies": [
+        "ME-077"
+      ],
+      "analytic": {
+        "id": "ME-080",
+        "formula": "∂ρ/∂t + ∇·(ρu) = 0",
+        "status": "open",
+        "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows."
+      }
+    },
+    {
+      "id": "ME-081",
+      "formula": "T^μν = (ρ + P)u^μu^ν + Pg^μν + η(t)σ^μν",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Separate known fluid/relaxation mathematics from EFMW additions; specify relativistic fluid geometry, constitutive law, regularity and limit cases.",
+      "dependencies": [
+        "ME-077",
+        "ME-078"
+      ],
+      "analytic": {
+        "id": "ME-081",
+        "formula": "T^μν = (ρ + P)u^μu^ν + Pg^μν + η(t)σ^μν",
+        "status": "open",
+        "source_obligation": "Separate known fluid/relaxation mathematics from EFMW additions; specify relativistic fluid geometry, constitutive law, regularity and limit cases."
+      }
+    },
+    {
+      "id": "ME-082",
+      "formula": "dη/dt = (η\\_eq − η)/τ",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+      "dependencies": [
+        "ME-078"
+      ]
+    },
+    {
+      "id": "ME-083",
+      "formula": "B₈₈₈ = (8,8,8)",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Separate known fluid/relaxation mathematics from EFMW additions; specify relativistic fluid geometry, constitutive law, regularity and limit cases.",
+      "dependencies": []
+    },
+    {
+      "id": "ME-084",
+      "formula": "T₈₈₈ = Torus(B₈₈₈, φ)",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Separate known fluid/relaxation mathematics from EFMW additions; specify relativistic fluid geometry, constitutive law, regularity and limit cases.",
+      "dependencies": [
+        "ME-083",
+        "ME-041"
+      ],
+      "analytic": {
+        "id": "ME-084",
+        "formula": "T₈₈₈ = Torus(B₈₈₈, φ)",
+        "status": "open",
+        "source_obligation": "Separate known fluid/relaxation mathematics from EFMW additions; specify relativistic fluid geometry, constitutive law, regularity and limit cases."
+      }
+    },
+    {
+      "id": "ME-085",
+      "formula": "S₂₃(X) = φ²³X",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Separate known fluid/relaxation mathematics from EFMW additions; specify relativistic fluid geometry, constitutive law, regularity and limit cases.",
+      "dependencies": [
+        "ME-041",
+        "ME-042"
+      ]
+    },
+    {
+      "id": "ME-086",
+      "formula": "N(X) = 0 → φ²³X",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Separate known fluid/relaxation mathematics from EFMW additions; specify relativistic fluid geometry, constitutive law, regularity and limit cases.",
+      "dependencies": [
+        "ME-085"
+      ]
+    },
+    {
+      "id": "ME-087",
+      "formula": "eᵢeⱼ = 0, for designated null pairs",
+      "root_status": "canonical_catalog",
+      "review_status": "open",
+      "source_obligation": "Separate known fluid/relaxation mathematics from EFMW additions; specify relativistic fluid geometry, constitutive law, regularity and limit cases.",
+      "dependencies": [
+        "ME-086"
+      ],
+      "analytic": {
+        "id": "ME-087",
+        "formula": "eᵢeⱼ = 0, for designated null pairs",
+        "status": "open",
+        "source_obligation": "Separate known fluid/relaxation mathematics from EFMW additions; specify relativistic fluid geometry, constitutive law, regularity and limit cases."
+      }
+    },
+    {
+      "id": "ME-088",
+      "formula": "R\\_b(X) = S₂₃(N(X))",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Separate known fluid/relaxation mathematics from EFMW additions; specify relativistic fluid geometry, constitutive law, regularity and limit cases.",
+      "dependencies": [
+        "ME-085",
+        "ME-086"
+      ]
+    },
+    {
+      "id": "ME-089",
+      "formula": "Risk = P(H) × (1 − C)",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-047"
+      ]
+    },
+    {
+      "id": "ME-090",
+      "formula": "L = Evidence × Coherence × Traceability",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-047",
+        "ME-094"
+      ]
+    },
+    {
+      "id": "ME-091",
+      "formula": "K = (1/N)|Σ exp(iθⱼ)|",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+      "dependencies": [
+        "ME-045"
+      ]
+    },
+    {
+      "id": "ME-092",
+      "formula": "D\\_KL(P||Q) = Σ P(x) log[P(x)/Q(x)]",
+      "root_status": "canonical_catalog",
+      "review_status": "analytic_model",
+      "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+      "dependencies": [],
+      "analytic": {
+        "id": "ME-092",
+        "formula": "D\\_KL(P||Q) = Σ P(x) log[P(x)/Q(x)]",
+        "status": "analytic_model",
+        "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+        "definition": "MonolithicAnalysis.Information.kl",
+        "theorem": "MonolithicAnalysis.Information.kl_eq_zero_iff"
+      }
+    },
+    {
+      "id": "ME-093",
+      "formula": "I(X;Y) = H(X) + H(Y) − H(X,Y)",
+      "root_status": "canonical_catalog",
+      "review_status": "analytic_model",
+      "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+      "dependencies": [],
+      "analytic": {
+        "id": "ME-093",
+        "formula": "I(X;Y) = H(X) + H(Y) − H(X,Y)",
+        "status": "analytic_model",
+        "source_obligation": "Prove equivalence to the standard relation under explicit conventions; do not claim novelty unless an EFMW-specific consequence follows.",
+        "definition": "MonolithicAnalysis.Information.mutualInformation",
+        "theorem": "MonolithicAnalysis.Information.mutualInformation_zero_iff_independent"
+      }
+    },
+    {
+      "id": "ME-094",
+      "formula": "E\\_(n+1) = E\\_n + ΔE·C",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-047"
+      ]
+    },
+    {
+      "id": "ME-095",
+      "formula": "Conf\\_(n+1) = Conf\\_n + α(E − Error)",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-094"
+      ]
+    },
+    {
+      "id": "ME-096",
+      "formula": "lim(n→∞) ||X\\_(n+1) − X\\_n|| = 0",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-072",
+        "ME-095"
+      ]
+    },
+    {
+      "id": "ME-097",
+      "formula": "A(x) = arg max[Benefit(x) − Harm(x)]",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-098"
+      ]
+    },
+    {
+      "id": "ME-098",
+      "formula": "W = Benefit × Coherence × Reversibility",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-047",
+        "ME-097"
+      ]
+    },
+    {
+      "id": "ME-099",
+      "formula": "Γ = Φ × R × C",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-024",
+        "ME-026",
+        "ME-047"
+      ]
+    },
+    {
+      "id": "ME-100",
+      "formula": "Γ ≥ Γ\\_crit",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-099"
+      ]
+    },
+    {
+      "id": "ME-101",
+      "formula": "I\\_(t+1) = I\\_t + λC",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-047",
+        "ME-072"
+      ]
+    },
+    {
+      "id": "ME-102",
+      "formula": "Accept EFMW only if\n\nΔtEFMW > Δtbaseline\n\nFAR ≤ FARmax\n\nCcompute ≤ Cmax\n\nReplication = True\n\nAccept the EFMW hypothesis only if:\n\n- Mean warning lead time is greater than the chosen baseline.\n- False-alarm rate remains within the predefined limit.\n- Computational cost remains within the predefined budget.\n- Results replicate across independent datasets and trials.",
+      "root_status": "typed_core",
+      "review_status": "structural_encoding",
+      "source_obligation": "Freeze operational semantics and test against baselines/held-out data; mathematical well-definition is separate from empirical validity.",
+      "dependencies": [
+        "ME-028",
+        "ME-029",
+        "ME-030"
+      ]
+    }
+  ]
+}

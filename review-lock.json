@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "decision_date": "2026-10-25",
+  "review_scope": "Frozen 102-equation catalogue, discrete encodings and the ME-003 flat specialization; not the entire EFMW corpus",
+  "canonical": {
+    "repository": "enuminous/Monolithic-102-Zoo-Lean4",
+    "tag": "efmw-review-2026-10-25",
+    "commit": "01f51acb0b0e564105dcf7f14cc55998d41b91ce",
+    "lean_root": "leanprover/lean4:v4.19.0",
+    "lean_analysis": "leanprover/lean4:v4.28.0",
+    "mathlib_analysis": "8f9d9cff6bd728b17a24e163c9402775d9e6a365",
+    "canonical_source_sha256": "d534be8e0664fd523bd0bbbd82e98b8acda29e23f0941690be96573661080268"
+  },
+  "historical": {
+    "repository": "enuminous/Monlithic_EFMW_102_Lean4",
+    "commit": "58f743bd44929049928d0b1d8beee9403c549a0d",
+    "status": "historical; not the canonical review target"
+  },
+  "verification": {
+    "kind": "observed GitHub Actions result; local reproduction recorded separately",
+    "run_url": "https://github.com/enuminous/Monolithic-102-Zoo-Lean4/actions/runs/38793976970",
+    "conclusion": "success"
+  }
+}

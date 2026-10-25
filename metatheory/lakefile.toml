@@ -1,0 +1,6 @@
+name = "EFMWMetatheory"
+version = "0.1.0"
+defaultTargets = ["EFMWTheory"]
+
+[[lean_lib]]
+name = "EFMWTheory"
