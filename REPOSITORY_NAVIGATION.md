@@ -4,6 +4,24 @@
 
 **Public repositories linked:** 135. One private repository is deliberately omitted.
 
+## Research lineages
+
+**Standard Model to quantum spacetime:** [Standard Model reduction](https://github.com/enuminous/Standard-Model-Reduction) → [Higgs gauge laboratory](https://github.com/enuminous/Higgs-Gauge-Lab) → [SM + EFMW physics lab](https://github.com/enuminous/EFMW-Physics-Lab) → [Base888 quantum geometry](https://github.com/enuminous/Base888-Quantum-Geometry) → [QST-001](https://github.com/enuminous/Quantum-Gravity/blob/main/QST-001.md) → [QST-002](https://github.com/enuminous/QST/blob/main/QST-002.md). These are connected **research artifacts**, not a proved derivation of the later stages from earlier ones.
+
+**Pressure-cycle and formal review:** [RHC-001: Rahasya–EFMW pressure-cycle model](https://github.com/enuminous/papers/blob/main/RHC-001-EFMW-Rahasya-Pressure-Cycle-Formalization.md) · [EFMW canonical 102](https://github.com/enuminous/Monolithic_102_EFMW) · [Frozen formal review](https://github.com/enuminous/Monolithic-102-Zoo-Lean4) · [Independent-audit ledger](https://github.com/enuminous/EFMW_Post156_Zoo_Audit).
+
+**Site-documentation update:** [Navigation audit, scope and maintenance](NAVIGATION_AUDIT_2026-10-27.md).
+
+## Subject shortcuts
+
+- [Core EFMW and review](#core-efmw-and-review)
+- [Formal proofs and audits](#lean-proofs-and-independent-audits)
+- [Physics and quantum geometry](#fundamental-physics-cosmology-and-quantum-geometry)
+- [Zoo agents](#zoo-index-and-agents)
+- [Computation and simulation](#simulators-computation-and-experiments)
+- [Papers and creative work](#papers-publications-and-creative-work)
+- [Other public repositories](#other-repositories)
+
 ## Start here
 
 - **[EFMW overview](https://github.com/enuminous/EFMW)** — canonical review front door and evidence limits.
