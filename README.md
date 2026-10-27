@@ -5,7 +5,7 @@
 
 **eNuminous network:** [All public repositories](https://github.com/enuminous/EFMW/blob/main/REPOSITORY_NAVIGATION.md) · [EFMW](https://github.com/enuminous/EFMW) · [102 equations](https://github.com/enuminous/Monolithic_102_EFMW) · [Frozen Lean](https://github.com/enuminous/Monolithic-102-Zoo-Lean4) · [Zoo](https://github.com/enuminous/Tortoise) · [Papers](https://github.com/enuminous/papers) · [Quantum geometry](https://github.com/enuminous/Base888-Quantum-Geometry)
 
-**This project:** [Repository home](https://github.com/enuminous/EFMW) · [Subject index](https://github.com/enuminous/EFMW/blob/main/REPOSITORY_NAVIGATION.md#efmw-research-and-related-projects) · [Published site](https://enuminous.github.io/EFMW/) · [Web application](index.html)
+**This project:** [Repository home](https://github.com/enuminous/EFMW) · [Subject index](https://github.com/enuminous/EFMW/blob/main/REPOSITORY_NAVIGATION.md#core-efmw-and-review)
 
 <details open>
 <summary><strong>On this page</strong></summary>
@@ -17,11 +17,12 @@
 - [EFMW Tutor](#efmw-tutor)
 - [Scope](#scope)
 
+
 </details>
 
 **Related repositories:** [Monolithic_102_EFMW](https://github.com/enuminous/Monolithic_102_EFMW) · [Monolithic-102-Zoo-Lean4](https://github.com/enuminous/Monolithic-102-Zoo-Lean4) · [EFMW_Post156_Zoo_Audit](https://github.com/enuminous/EFMW_Post156_Zoo_Audit) · [papers](https://github.com/enuminous/papers) · [QST](https://github.com/enuminous/QST) · [EFMW-FULL](https://github.com/enuminous/EFMW-FULL) · [EFMW-Axioms](https://github.com/enuminous/EFMW-Axioms) · [EFMW-EXP-001](https://github.com/enuminous/EFMW-EXP-001) · [EFMW-Lagrangian](https://github.com/enuminous/EFMW-Lagrangian)
 
-> **Evidence boundary:** A link between projects is navigation, not an assertion of proven equivalence, experimental validation, or shared authorship. See each repository's own status and review notes.
+> **Evidence boundary:** A link between projects is navigation, not an assertion of proven equivalence, experimental validation, or shared authorship. See each repository’s own status and review notes.
 <!-- ENUMINOUS-UNIFIED-NAV:END -->
 
 
