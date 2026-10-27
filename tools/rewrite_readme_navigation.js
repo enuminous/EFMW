@@ -40,7 +40,7 @@ const named = {
  'EFMW_Post156_Zoo_Audit':['Monolithic-Zoo-Lean4','Monolithic-102-Zoo-Lean4','Tortoise','EFMW']
 };
 function group(n) {
- if(lists.animals.includes(n)) return ['Zoo agents and scrutiny',lists.animals];
+ if(lists.animals.includes(n)) return ['Zoo index and agents',lists.animals];
  if(lists.physics.includes(n)) return ['Fundamental physics, cosmology and quantum geometry',lists.physics];
  if(lists.formal.includes(n)) return ['Lean, proofs and independent audits',lists.formal];
  if(lists.editorial.includes(n)) return ['Papers, publications and creative work',lists.editorial];
