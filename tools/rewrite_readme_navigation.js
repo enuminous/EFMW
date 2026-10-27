@@ -68,8 +68,9 @@ function headings(s) {
 }
 module.exports = function rewriteReadme(name,original) {
  const earlier=original.match(/<!-- ENUMINOUS-NETWORK:START -->([\s\S]*?)<!-- ENUMINOUS-NETWORK:END -->/);
- const live=earlier?.[1]?.match(/\[Published page\]\((https?:\/\/[^)]+)\)/)?.[1];
- const webIndex=/\[index\.html\]\(https:\/\/github\.com\/enuminous\/[^)]+\/blob\/[^)]*\/index\.html\)/.test(earlier?.[1]||'');
+ const existing=original.match(/<!-- ENUMINOUS-UNIFIED-NAV:START -->([\s\S]*?)<!-- ENUMINOUS-UNIFIED-NAV:END -->/);
+ const live=earlier?.[1]?.match(/\[Published page\]\((https?:\/\/[^)]+)\)/)?.[1] || existing?.[1]?.match(/\[Published site\]\((https?:\/\/[^)]+)\)/)?.[1];
+ const webIndex=/\[index\.html\]\(https:\/\/github\.com\/enuminous\/[^)]+\/blob\/[^)]*\/index\.html\)/.test(earlier?.[1]||'') || (existing?.[1]||'').includes('[Web application](index.html)');
  let s=original.replace(/<!-- ENUMINOUS-UNIFIED-NAV:START -->[\s\S]*?<!-- ENUMINOUS-UNIFIED-NAV:END -->\s*/g,'')
    .replace(/<!-- ENUMINOUS-NETWORK:START -->[\s\S]*?<!-- ENUMINOUS-NETWORK:END -->\s*/g,'');
  if(!s.trim()) s='# '+name+'\n\n## Overview\n\nExplore this project and its counterparts using the navigation links above.\n';
@@ -89,7 +90,7 @@ module.exports = function rewriteReadme(name,original) {
  const nav=[
  '<!-- ENUMINOUS-UNIFIED-NAV:START -->','## Repository navigation','',
  '**eNuminous network:** [All public repositories](https://github.com/enuminous/EFMW/blob/main/REPOSITORY_NAVIGATION.md) · [EFMW](https://github.com/enuminous/EFMW) · [102 equations](https://github.com/enuminous/Monolithic_102_EFMW) · [Frozen Lean](https://github.com/enuminous/Monolithic-102-Zoo-Lean4) · [Zoo](https://github.com/enuminous/Tortoise) · [Papers](https://github.com/enuminous/papers) · [Quantum geometry](https://github.com/enuminous/Base888-Quantum-Geometry)','',
- '**This project:** [Repository home](https://github.com/enuminous/'+name+') · [Subject index](https://github.com/enuminous/EFMW/blob/main/REPOSITORY_NAVIGATION.md#'+slug(category)+')'+(live?' · [Published site]('+live+')':'')+(webIndex?' · [Web application](index.html)':''),'',
+ '**This project:** [Repository home](https://github.com/enuminous/'+name+') · '+(name==='EFMW-Bounded-Test-1'?'[Public network index](https://github.com/enuminous/EFMW/blob/main/REPOSITORY_NAVIGATION.md)':'[Subject index](https://github.com/enuminous/EFMW/blob/main/REPOSITORY_NAVIGATION.md#'+slug(category)+')')+(live?' · [Published site]('+live+')':'')+(webIndex?' · [Web application](index.html)':''),'',
  '<details open>','<summary><strong>On this page</strong></summary>','',toc,chosen.length<hs.length?'\n- *Further headings are in the document below.*':'','',
  '</details>','',
  '**Related repositories:** '+peers.map(n=>'['+n+'](https://github.com/enuminous/'+n+')').join(' · '),'',
