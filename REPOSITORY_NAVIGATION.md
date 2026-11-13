@@ -12,6 +12,44 @@
 
 **Site-documentation update:** [Navigation audit, scope and maintenance](NAVIGATION_AUDIT_2026-10-27.md).
 
+
+## 2026-11-13 reconciliation layer: evidence, introspection, and new papers
+
+**Scope:** This section reconciles the existing 27 October repository navigation with the November HYP/INT research line. The earlier index states 135 public repositories; this update does not certify that 135 remains the current complete count, nor that every repository's source has been re-executed.
+
+**Follow the argument in order:**
+
+1. [EFMW review entry](https://github.com/enuminous/EFMW) → [canonical 102-equation catalogue](https://github.com/enuminous/Monolithic_102_EFMW).
+2. [Frozen Lean target](https://github.com/enuminous/Monolithic-102-Zoo-Lean4) → [independent audit ledger](https://github.com/enuminous/EFMW_Post156_Zoo_Audit). Formal compilation is not physical validation.
+3. [EFMW-EXP-001](https://github.com/enuminous/EFMW-EXP-001) → [EFMW-FULL historical implementation](https://github.com/enuminous/EFMW-FULL). Historical copies are not independent replications.
+4. [EFMW-HYP-001 physical predictions](https://github.com/enuminous/papers/blob/main/EFMW-HYP-001-Testable-Physical-Predictions-2026-11-12.md) → [HYP-001A known-zero failure](https://github.com/enuminous/papers/blob/main/EFMW-HYP-001A-Known-Zero-Recovery-2026-11-13.md) → [reproduction code](https://github.com/enuminous/papers/tree/main/EFMW-HYP-001A). HYP-001A does not establish new physics.
+5. [On Introspective Machines](https://github.com/enuminous/papers/blob/main/On-Introspective-Machines-2026-11-13.md) → [EFMW-INT-001 proposed preregistration](https://github.com/enuminous/papers/blob/main/EFMW-INT-001-Preregistered-Audit-Benchmark-Protocol-2026-11-13.md). No 300-item confirmatory run is claimed.
+6. [Zoo methodology](https://github.com/enuminous/Tortoise) → [scientific claims](https://github.com/enuminous/EFMW-Scientific-Claims) → [papers](https://github.com/enuminous/papers). Audit classifications are not proof of physical effects.
+
+### Status and contradiction register
+
+| Question | Reconciled interpretation | Required follow-up |
+|---|---|---|
+| Which 102-equation Lean object is canonical? | Frozen review target in Monolithic-102-Zoo-Lean4, not historical Aristotle copies | Verify pinned commit and build logs before quoting |
+| Are EXP-001 copies independent replications? | No: EFMW-FULL documents historical/transcribed overlap | Cite frozen-run reconciliation; obtain external replication |
+| Does a HYP-001A significant coefficient show physical coupling? | No: naive null false positives 99.9%; adjusted 9.9% | Recalibrate inference and validate held-out nulls |
+| Is INT-001 preregistered and frozen? | Draft protocol only; thresholds, custody, and corpus not complete | Set numerical gates, independent custodian, freeze |
+| Do cross-repository arrows establish theoretical derivation? | No: arrows are navigation or proposed dependencies | Require explicit proof obligations and observational evidence |
+| Is the public network fully reconciled at file/claim level? | Not yet verified | Machine-readable repository inventory, claim-to-source graph, per-repo audit |
+
+### Coherence rules for future repository edits
+
+- Preserve original data, source commits, historical versions, failed experiments, and negative results.
+- Give every cross-repository assertion a relationship type: `navigation`, `depends-on`, `implements`, `tests`, `replicates`, `contradicts`, or `supersedes`. Do not use `replicates` without independent execution.
+- Separate `proposed`, `derived`, `simulated`, `observed`, `independently-replicated`, `contradicted`, and `unknown` statuses.
+- Record exact revisions and provenance for all promoted scientific claims.
+- Maintain a distinction between *research coherence* (a consistent map of claims and tests) and *physical validity* (external empirical support).
+- For navigation-only edits, never silently change frozen experimental protocols, Lean theorem statements, or empirical acceptance criteria.
+
+### Incomplete work
+
+This navigation reconciliation is a **document-level cross-link update**, not a claim of an executed all-file, all-commit, all-equation, or all-dataset scan. A true corpus-wide reconciliation requires an independently reproducible repository export, source hashing, dependency extraction, duplicate detection, semantic claim review, and tests for every applicable build. Record any missing access or unresolved discrepancies rather than filling gaps with assumptions.
+
 ## Subject shortcuts
 
 - [Core EFMW and review](#core-efmw-and-review)
