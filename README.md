@@ -37,6 +37,8 @@
 
 The review snapshot contains **53 structural encodings, 15 analytic models, one partial specialization and 33 open analytic entries**. ME-003 is proved only for the stated flat Minkowski specialization. A structural encoding or a conditional mathematical theorem does not establish the original physical interpretation.
 
+See the [pinned research dependencies and current outcomes](review/RESEARCH_DEPENDENCIES.md) for the specialist labs, evidence packages, and follow-up decisions.
+
 ## Which object is canonical?
 
 | Object | Role for this review |

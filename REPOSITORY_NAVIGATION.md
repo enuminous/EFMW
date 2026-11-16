@@ -20,10 +20,10 @@
 **Follow the argument in order:**
 
 1. [EFMW review entry](https://github.com/enuminous/EFMW) → [canonical 102-equation catalogue](https://github.com/enuminous/Monolithic_102_EFMW).
-2. [Frozen Lean target](https://github.com/enuminous/Monolithic-102-Zoo-Lean4) → [independent audit ledger](https://github.com/enuminous/EFMW_Post156_Zoo_Audit). Formal compilation is not physical validation.
-3. [EFMW-EXP-001](https://github.com/enuminous/EFMW-EXP-001) → [EFMW-FULL historical implementation](https://github.com/enuminous/EFMW-FULL). Historical copies are not independent replications.
+2. [Frozen Lean target (01f51acb)](https://github.com/enuminous/Monolithic-102-Zoo-Lean4/tree/efmw-review-2026-10-25) → [independent audit ledger](https://github.com/enuminous/EFMW_Post156_Zoo_Audit). Formal compilation is not physical validation.
+3. [EXP-001–003 evidence and limitations](https://github.com/enuminous/EFMW-EXP-001/blob/main/EVIDENCE_INDEX.md) → [EFMW-FULL historical implementation](https://github.com/enuminous/EFMW-FULL). Historical copies are not independent replications.
 4. [EFMW-HYP-001 physical predictions](https://github.com/enuminous/papers/blob/main/EFMW-HYP-001-Testable-Physical-Predictions-2026-11-12.md) → [HYP-001A known-zero failure](https://github.com/enuminous/papers/blob/main/EFMW-HYP-001A-Known-Zero-Recovery-2026-11-13.md) → [reproduction code](https://github.com/enuminous/papers/tree/main/EFMW-HYP-001A). HYP-001A does not establish new physics.
-5. [On Introspective Machines](https://github.com/enuminous/papers/blob/main/On-Introspective-Machines-2026-11-13.md) → [EFMW-INT-001 proposed preregistration](https://github.com/enuminous/papers/blob/main/EFMW-INT-001-Preregistered-Audit-Benchmark-Protocol-2026-11-13.md). No 300-item confirmatory run is claimed.
+5. [On Introspective Machines](https://github.com/enuminous/papers/blob/main/On-Introspective-Machines-2026-11-13.md) → [EFMW-INT-001 proposed preregistration](https://github.com/enuminous/papers/blob/main/EFMW-INT-001-Preregistered-Audit-Benchmark-Protocol-2026-11-13.md). The [60-item pilot](https://github.com/enuminous/papers/tree/main/research/efmw-int-001-pilot-60) passed construction checks. Its labels are public and the four-arm comparison was not run. The 300-item confirmatory protocol remains draft.
 6. [Zoo methodology](https://github.com/enuminous/Tortoise) → [scientific claims](https://github.com/enuminous/EFMW-Scientific-Claims) → [papers](https://github.com/enuminous/papers). Audit classifications are not proof of physical effects.
 
 ### Status and contradiction register
@@ -33,7 +33,7 @@
 | Which 102-equation Lean object is canonical? | Frozen review target in Monolithic-102-Zoo-Lean4, not historical Aristotle copies | Verify pinned commit and build logs before quoting |
 | Are EXP-001 copies independent replications? | No: EFMW-FULL documents historical/transcribed overlap | Cite frozen-run reconciliation; obtain external replication |
 | Does a HYP-001A significant coefficient show physical coupling? | No: naive null false positives 99.9%; adjusted 9.9% | Recalibrate inference and validate held-out nulls |
-| Is INT-001 preregistered and frozen? | Draft protocol only; thresholds, custody, and corpus not complete | Set numerical gates, independent custodian, freeze |
+| Is INT-001 preregistered and frozen? | [Pilot 60](https://github.com/enuminous/papers/tree/main/research/efmw-int-001-pilot-60) frozen for construction checks. Confirmatory protocol remains draft. | Freeze a new corpus, executable arms and numeric gates under independent custody |
 | Do cross-repository arrows establish theoretical derivation? | No: arrows are navigation or proposed dependencies | Require explicit proof obligations and observational evidence |
 | Is the public network fully reconciled at file/claim level? | Not yet verified | Machine-readable repository inventory, claim-to-source graph, per-repo audit |
 
@@ -115,6 +115,11 @@ This navigation reconciliation is a **document-level cross-link update**, not a 
 - [QST](https://github.com/enuminous/QST)
 - [Cosmology](https://github.com/enuminous/Cosmology)
 - [FieldSpace](https://github.com/enuminous/FieldSpace)
+- [Geometry](https://github.com/enuminous/Geometry) — bounded geometry certificates and counterexamples.
+- [Information-Tensor](https://github.com/enuminous/Information-Tensor) — WITD numerical and tensor-correspondence studies.
+- [Phase-Vorticity-Lab](https://github.com/enuminous/Phase-Vorticity-Lab) — analytic and numerical checks with a separate, later Lean source pin.
+- [Observatory](https://github.com/enuminous/Observatory) — dated Unity evidence and open interfaces.
+- [Pinned research dependencies](review/RESEARCH_DEPENDENCIES.md) — source, result, and disposition for the main research chains.
 - [Cat-Physics](https://github.com/enuminous/Cat-Physics)
 - [Universe5](https://github.com/enuminous/Universe5)
 - [Music-of-the-Spheres](https://github.com/enuminous/Music-of-the-Spheres)
