@@ -107,6 +107,8 @@ This navigation reconciliation is a **document-level cross-link update**, not a 
 
 ### Fundamental physics, cosmology and quantum geometry
 
+- [Rotation](https://github.com/enuminous/Rotation) · [ROT-011 terminal ledger](https://github.com/enuminous/Rotation/blob/main/research/ROT-011_TERMINAL_LEDGER.json) — exact source-class exclusion on a fixed geometry. Observed cosmic rotation remains unresolved.
+
 - [Standard-Model-Reduction](https://github.com/enuminous/Standard-Model-Reduction)
 - [Higgs-Gauge-Lab](https://github.com/enuminous/Higgs-Gauge-Lab)
 - [EFMW-Physics-Lab](https://github.com/enuminous/EFMW-Physics-Lab)
@@ -119,6 +121,7 @@ This navigation reconciliation is a **document-level cross-link update**, not a 
 - [Information-Tensor](https://github.com/enuminous/Information-Tensor) — WITD numerical and tensor-correspondence studies.
 - [Phase-Vorticity-Lab](https://github.com/enuminous/Phase-Vorticity-Lab) — analytic and numerical checks with a separate, later Lean source pin.
 - [Observatory](https://github.com/enuminous/Observatory) — dated Unity evidence and open interfaces.
+  - [IST-FAM execution receipt](https://github.com/enuminous/papers/blob/main/research/ist-fam-001/EXECUTION.json) · [UNITY-001 stationary source screen](https://github.com/enuminous/papers/blob/main/research/unity-001/source-screen/README.md)
 - [Pinned research dependencies](review/RESEARCH_DEPENDENCIES.md) — source, result, and disposition for the main research chains.
 - [Cat-Physics](https://github.com/enuminous/Cat-Physics)
 - [Universe5](https://github.com/enuminous/Universe5)
@@ -131,6 +134,8 @@ This navigation reconciliation is a **document-level cross-link update**, not a 
 - [EFMW-Grid](https://github.com/enuminous/EFMW-Grid)
 
 ### Zoo index and agents
+
+- [Autonomy](https://github.com/enuminous/Autonomy) · [AUT-001 reversal test](https://github.com/enuminous/Autonomy/blob/main/docs/AUT-001.md) — synthetic technical PASS. Independent review and live reversal assurance remain unresolved.
 
 - [Tortoise](https://github.com/enuminous/Tortoise)
 - [Owl](https://github.com/enuminous/Owl)
